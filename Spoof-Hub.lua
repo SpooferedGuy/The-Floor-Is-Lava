@@ -1,1 +1,2218 @@
-local v0=loadstring(game:HttpGet("https://raw.githubusercontent.com/SpooferedGuy/UI-Library-Spoof/main/Ui-Library.lua"))();local v1=v0({Title="Spoof Hub, by SpooferedGuy",ScriptName="SpoofHub - TheFloorIsLava"});local v2=v1.CreateTab("Farm🌋");local v3=v1.CreateTab("Player👤");local v4=v1.CreateTab("Troll🗿");local v5=v1.CreateTab("Teleports🤷‍♀️");local v6=game:GetService("Players");local v7=game:GetService("RunService");local v8=v6.LocalPlayer;local v9=game:GetService("Workspace");local v10=false;local v11={};local function v12(v168) if (v168:IsA("BasePart") and v168.Name:lower():find("coin")) then if  not v11[v168] then v11[v168]={Size=v168.Size,Transparency=v168.Transparency,CanCollide=v168.CanCollide};v168.CanCollide=false;v168.Transparency=1;end end end v2.AddToggle("AutoCoin",false,function(v169) local v170=0 -0 ;while true do if (v170==(0 -0)) then v10=v169;if v169 then for v691,v692 in ipairs(v9:GetDescendants()) do v12(v692);end else local v614=0 -0 ;while true do if (v614==(1445 -(1290 + 155))) then for v792,v793 in pairs(v11) do if (v792 and v792.Parent) then local v813=0 -0 ;while true do if (v813==(0 + 0)) then v792.Size=v793.Size;v792.Transparency=v793.Transparency;v813=1 -0 ;end if (v813==(66 -(30 + 35))) then v792.CanCollide=v793.CanCollide;break;end end end end v11={};break;end end end break;end end end);v9.DescendantAdded:Connect(function(v171) if v10 then local v432=0 + 0 ;while true do if (v432==(1257 -(1043 + 214))) then task.wait();v12(v171);break;end end end end);v7.RenderStepped:Connect(function() local v172=0;while true do if (v172==(0 -0)) then if  not v10 then return;end for v556 in pairs(v11) do if (v556 and v556.Parent) then v556.Size=v556.Size + Vector3.new(1262 -(323 + 889) ,134 -84 ,630 -(361 + 219) ) ;else v11[v556]=nil;end end break;end end end);local v7=game:GetService("RunService");local v13=Vector3.new(2,67, -(561 -(53 + 267)));local v14=2 + 3 ;local v15=false;local v16=nil;local v17=nil;local function v18() local v173=413 -(15 + 398) ;while true do if (v173==1) then v17=nil;v16=v7.Heartbeat:Connect(function() local v557=0;local v558;local v559;local v560;local v561;while true do if (v557==(984 -(18 + 964))) then if  not v559 then return;end v560=v559.Position;v557=3;end if (3==v557) then v561=(v560-v13).Magnitude;if (v561<=v14) then if v17 then v559.CFrame=CFrame.new(v17);else v559.CFrame=CFrame.new(v13.X,v13.Y + (188 -138) ,v13.Z);end else v17=v560;end break;end if (v557==(1 + 0)) then if  not v558 then return;end v559=v558:FindFirstChild("HumanoidRootPart");v557=2 + 0 ;end if (v557==(850 -(20 + 830))) then if  not v15 then return;end v558=v8.Character;v557=1 + 0 ;end end end);break;end if (v173==(126 -(116 + 10))) then if v15 then return;end v15=true;v173=1 + 0 ;end end end local function v19() if  not v15 then return;end v15=false;if v16 then local v433=738 -(542 + 196) ;while true do if (v433==(0 -0)) then v16:Disconnect();v16=nil;break;end end end v17=nil;end local v20={};local v21={};local v22=false;local v23=false;local v24=nil;local v25=0;local function v26() for v379,v380 in ipairs(v9:GetDescendants()) do if (v380:IsA("BasePart") and (v380.Name=="Head")) then local v481=0;local v482;while true do if (v481==1) then if ( not v482 and  not v20[v380]) then v20[v380]={Size=v380.Size,CanCollide=v380.CanCollide,Transparency=v380.Transparency};end break;end if ((0 + 0)==v481) then v482=false;for v745,v746 in ipairs(v6:GetPlayers()) do if (v746.Character and v380:IsDescendantOf(v746.Character)) then v482=true;break;end end v481=1 + 0 ;end end end end end local function v27() for v381,v382 in ipairs(v9:GetDescendants()) do if (v382:IsA("BasePart") and (v382.Name=="Finish") and  not v21[v382]) then v21[v382]={Size=v382.Size,CanCollide=v382.CanCollide,Transparency=v382.Transparency};end end end local function v28() local v174=0 + 0 ;while true do if (v174==(0 -0)) then for v562,v563 in ipairs(game:GetDescendants()) do if (v563:IsA("Tool") and (v563.Name=="Push")) then return v563;end end return nil;end end end local function v29() local v175=0 -0 ;local v176;local v177;local v178;local v179;while true do if (v175==(1554 -(1126 + 425))) then v179=v28();if v179 then local v615=v179:Clone();v615.Parent=v176;v24=v615;return v615;end v175=409 -(118 + 287) ;end if (v175==2) then v178=v176:FindFirstChild("Push");if (v178 and v178:IsA("Tool")) then v24=v178;return v178;end v175=11 -8 ;end if (v175==(1125 -(118 + 1003))) then return nil;end if (v175==(2 -1)) then if (v24 and v24.Parent) then return v24;end if v177 then local v617=377 -(142 + 235) ;local v618;while true do if (v617==0) then v618=v177:FindFirstChild("Push");if (v618 and v618:IsA("Tool")) then v24=v618;return v618;end break;end end end v175=9 -7 ;end if (v175==0) then v176=v8:WaitForChild("Backpack");v177=v8.Character;v175=1 + 0 ;end end end local function v30() return v22 or v23 ;end local function v31() if v30() then v18();else v19();end end local function v32() local v180=0;local v181;while true do if (v180==(978 -(553 + 424))) then task.spawn(function() while v30() and (v181==v25)  do local v619=v8.Character;local v620=v619 and v619:FindFirstChildOfClass("Humanoid") ;if (v620 and (v620.Health>(0 -0))) then local v747=v29();if (v747 and v747.Parent) then v24=v747;v620:EquipTool(v747);task.wait(0.1 + 0 );if ( not v30() or (v181~=v25)) then break;end v620:UnequipTools();task.wait(0.1);else task.wait(0.5 + 0 );end else task.wait(0.5 + 0 );end end end);break;end if (v180==(0 + 0)) then v25+=1 v181=v25;v180=1;end end end v8.CharacterAdded:Connect(function(v182) local v183=0 + 0 ;while true do if (v183==1) then v182:WaitForChild("Humanoid",10);task.wait(1);v183=4 -2 ;end if (0==v183) then if  not v30() then return;end v24=nil;v183=2 -1 ;end if (v183==2) then if v30() then v29();end break;end end end);v26();v27();v2.AddToggle("Infinite Points Farm",false,function(v184) v22=v184;v26();if v184 then for v485,v486 in pairs(v20) do if (v485 and v485.Parent) then local v621=0;while true do if (v621==(0 -0)) then v485.Size=v486.Size + Vector3.new(2908 + 7091 ,48321 -38322 ,9999) ;v485.CanCollide=false;v621=754 -(239 + 514) ;end if (v621==1) then v485.Transparency=1 + 0 ;break;end end end end v24=nil;v29();if  not v23 then v32();end else for v487,v488 in pairs(v20) do if (v487 and v487.Parent) then v487.Size=v488.Size;v487.CanCollide=v488.CanCollide;v487.Transparency=v488.Transparency;end end if  not v23 then v25+=(1330 -(797 + 532)) v24=nil;end end v31();end);local v6=game:GetService("Players");local v33=v6.LocalPlayer;local v34=false;local v35={};local function v36(v185) local v186=v35[v185];if v186 then v186:Destroy();v35[v185]=nil;end end local function v37(v187) if (v187==v33) then return;end if  not v34 then return;end local v188=v187.Character;if  not v188 then return;end local v189=v188:FindFirstChild("Head");if  not v189 then return;end v36(v187);local v190=Instance.new("BillboardGui");v190.Name="NameESP";v190.Adornee=v189;v190.Size=UDim2.new(0 + 0 ,41 + 79 ,0,25);v190.StudsOffset=Vector3.new(0 -0 ,2.5,0);v190.AlwaysOnTop=true;v190.Parent=v189;local v197=Instance.new("TextLabel");v197.Size=UDim2.fromScale(1203 -(373 + 829) ,1);v197.BackgroundTransparency=1;v197.Text=v187.Name;v197.TextColor3=Color3.fromRGB(986 -(476 + 255) ,0,1130 -(369 + 761) );v197.TextStrokeTransparency=0 + 0 ;v197.TextScaled=true;v197.Font=Enum.Font.SourceSansBold;v197.Parent=v190;v35[v187]=v190;end local function v38(v209) local v210=0 -0 ;while true do if (0==v210) then if (v209==v33) then return;end v209.CharacterAdded:Connect(function(v564) local v565=0 -0 ;local v566;while true do if ((238 -(64 + 174))==v565) then if  not v34 then return;end v566=v564:WaitForChild("Head",1 + 4 );v565=1;end if ((1 -0)==v565) then if (v566 and v34) then task.wait(0.1);v37(v209);end break;end end end);v210=337 -(144 + 192) ;end if (v210==1) then if v209.Character then task.defer(function() v37(v209);end);end break;end end end local function v39() for v383,v384 in ipairs(v6:GetPlayers()) do if (v384~=v33) then if v34 then v37(v384);else v36(v384);end end end end v4.AddToggle("Name ESP",false,function(v211) local v212=216 -(42 + 174) ;while true do if (v212==(0 + 0)) then v34=v211;if v211 then v39();else for v695 in pairs(v35) do v36(v695);end end break;end end end);for v213,v214 in ipairs(v6:GetPlayers()) do if (v214~=v33) then v38(v214);end end v6.PlayerAdded:Connect(function(v215) if (v215~=v33) then v38(v215);end end);v6.PlayerRemoving:Connect(function(v216) v36(v216);end);v2.AddToggle("Infinite Points Farm(VIP)",false,function(v217) local v218=0 + 0 ;while true do if (v218==(0 + 0)) then v23=v217;v27();v218=1505 -(363 + 1141) ;end if (v218==1) then if v217 then for v696,v697 in pairs(v21) do if (v696 and v696.Parent) then local v770=1580 -(1183 + 397) ;while true do if (v770==(2 -1)) then v696.Transparency=1 + 0 ;break;end if ((0 + 0)==v770) then v696.Size=v697.Size + Vector3.new(9999,11974 -(1913 + 62) ,9999) ;v696.CanCollide=false;v770=1;end end end end v24=nil;v29();if  not v22 then v32();end else local v628=0 + 0 ;while true do if (v628==(0 -0)) then for v794,v795 in pairs(v21) do if (v794 and v794.Parent) then v794.Size=v795.Size;v794.CanCollide=v795.CanCollide;v794.Transparency=v795.Transparency;end end if  not v22 then v25+=(1934 -(565 + 1368)) v24=nil;end break;end end end v31();break;end end end);local v40=false;local v6=game:GetService("Players");local v8=v6.LocalPlayer;local function v41(v219) local v220=v219:WaitForChild("Humanoid");v220:SetStateEnabled(Enum.HumanoidStateType.Swimming, not v40);if v40 then v220:ChangeState(Enum.HumanoidStateType.Running);end end v3.AddToggle("GodMode",false,function(v221) local v222=0 -0 ;while true do if (0==v222) then v40=v221;if v8.Character then v41(v8.Character);end break;end end end);v8.CharacterAdded:Connect(function(v223) v41(v223);end);local v42=100;local v6=game:GetService("Players");local v7=game:GetService("RunService");local v8=v6.LocalPlayer;local v43,v44,v45;local v46=nil;local v47=false;local function v48(v224) local v225=1661 -(1477 + 184) ;while true do if (v225==(0 -0)) then v43=v224;v44=v43:WaitForChild("HumanoidRootPart");v225=1 + 0 ;end if (v225==1) then v45=v43:WaitForChild("Humanoid");break;end end end v48(v8.Character or v8.CharacterAdded:Wait() );v8.CharacterAdded:Connect(function(v226) v48(v226);end);local function v49() if  not v44 then return nil;end local v227=nil;local v228=v42;for v385,v386 in ipairs(v6:GetPlayers()) do if ((v386~=v8) and v386.Character and v386.Character:FindFirstChild("HumanoidRootPart") and v386.Character:FindFirstChildOfClass("Humanoid") and (v386.Character.Humanoid.Health>(856 -(564 + 292)))) then local v489=v386.Character.HumanoidRootPart;local v490=(v44.Position-v489.Position).Magnitude;if (v490<v228) then v227=v386;v228=v490;end end end return v227;end local function v50() local v229=0 -0 ;while true do if (v229==(0 -0)) then if v46 then return;end v46=v7.Heartbeat:Connect(function() local v567=304 -(244 + 60) ;local v568;while true do if (v567==1) then if (v568 and v568.Character) then local v796=0;local v797;while true do if (v796==0) then v797=v568.Character:FindFirstChild("HumanoidRootPart");if v797 then v44.CFrame=CFrame.lookAt(v44.Position,Vector3.new(v797.Position.X,v44.Position.Y,v797.Position.Z));end break;end end end break;end if (v567==(0 + 0)) then if ( not v47 or  not v44) then return;end v568=v49();v567=1;end end end);break;end end end local function v51() if v46 then v46:Disconnect();v46=nil;end end local v52=false;v4.AddToggle("KillAura (CHOMP PLANT)",false,function(v230) local v231=0;while true do if (v231==1) then if v230 then v50();else v51();end task.spawn(function() while v52 do local v629=game.Players.LocalPlayer;local v630=v629.Character or v629.CharacterAdded:Wait() ;local v631=v630:WaitForChild("Humanoid");local v632=v630:FindFirstChild("CHOMP PLANT") or v629.Backpack:FindFirstChild("CHOMP PLANT") ;if (v632 and v632:IsA("Tool")) then v631:EquipTool(v632);task.wait();v631:UnequipTools();end task.wait();end end);break;end if (v231==0) then v52=v230;v47=v230;v231=477 -(41 + 435) ;end end end);local v53=false;local v54=game:GetService("UserInputService");local v6=game:GetService("Players");local v8=v6.LocalPlayer;local v55=false;local v56=false;local function v57(v232) local v233=1001 -(938 + 63) ;local v234;while true do if (v233==0) then v234=v232:WaitForChild("Humanoid");v55=false;v233=1;end if (v233==(1 + 0)) then v56=false;v234.StateChanged:Connect(function(v569,v570) if (v570==Enum.HumanoidStateType.Jumping) then task.wait(0.1);v55=true;elseif (v570==Enum.HumanoidStateType.Landed) then v55=false;v56=false;end end);break;end end end if v8.Character then v57(v8.Character);end v8.CharacterAdded:Connect(v57);v54.JumpRequest:Connect(function() local v235=1125 -(936 + 189) ;local v236;local v237;while true do if (v235==(0 + 0)) then if  not v53 then return;end v236=v8.Character;v235=1614 -(1565 + 48) ;end if (v235==(1 + 0)) then if  not v236 then return;end v237=v236:FindFirstChild("Humanoid");v235=2;end if (v235==(1140 -(782 + 356))) then if  not v237 then return;end if (v55 and  not v56) then local v633=0;while true do if (v633==0) then v56=true;v237:ChangeState(Enum.HumanoidStateType.Jumping);break;end end end break;end end end);v3.AddToggle("DoubleJumpGP",false,function(v238) v53=v238;end);local v58=false;local v6=game:GetService("Players");local v7=game:GetService("RunService");local v8=v6.LocalPlayer;local v59=v8.Character or v8.CharacterAdded:Wait() ;local v45=v59:WaitForChild("Humanoid");local v60=v59:WaitForChild("HumanoidRootPart");local v61=workspace.Gravity;local v62={JumpPower=317 -(176 + 91) ,GravityModifier=0.25 -0 ,FallSpeed=58 -18 };local function v63() return v8.Character;end local function v64() if v58 then local v435=1092 -(975 + 117) ;while true do if (v435==(1876 -(157 + 1718))) then v45.JumpPower=v62.JumpPower;break;end if (v435==(0 + 0)) then workspace.Gravity=v61 * v62.GravityModifier ;v45.UseJumpPower=true;v435=3 -2 ;end end else workspace.Gravity=v61;v45.UseJumpPower=true;v45.JumpPower=170 -120 ;end end task.spawn(function() while true do local v387=1018 -(697 + 321) ;local v388;while true do if (v387==(0 -0)) then task.wait(0.05 -0 );v388=v63();v387=2 -1 ;end if (v387==(1 + 0)) then if (v58 and v388) then local v698=v388:FindFirstChild("HumanoidRootPart");if (v698 and v698.Parent) then local v771=v698.AssemblyLinearVelocity;if (v771.Y< -(1 -0)) then v698.AssemblyLinearVelocity=Vector3.new(v771.X,math.max(v771.Y, -v62.FallSpeed),v771.Z);end end end break;end end end end);v8.CharacterAdded:Connect(function(v239) v59=v239;v45=v239:WaitForChild("Humanoid");v60=v239:WaitForChild("HumanoidRootPart");if v58 then v64();end end);v8.CharacterRemoving:Connect(function() workspace.Gravity=v61;end);v3.AddToggle("Fake Gravity Coil",false,function(v241) local v242=0 -0 ;while true do if (v242==(1227 -(322 + 905))) then v58=v241;v64();break;end end end);local v65=false;local v6=game:GetService("Players");local v7=game:GetService("RunService");local v8=v6.LocalPlayer;local v59=v8.Character or v8.CharacterAdded:Wait() ;local v45=v59:WaitForChild("Humanoid");local v66;local function v67() local v243=v8.Character;if  not v243 then return;end local v244=v243:FindFirstChild("Humanoid");if  not v244 then return;end if v65 then v244.WalkSpeed=24;else v244.WalkSpeed=16;end end local function v68() local v245=0;while true do if (v245==(611 -(602 + 9))) then if v66 then v66:Disconnect();v66=nil;end v66=v7.RenderStepped:Connect(function() if v65 then local v699=1189 -(449 + 740) ;local v700;while true do if (v699==(872 -(826 + 46))) then v700=v8.Character;if v700 then local v825=v700:FindFirstChild("Humanoid");if (v825 and (v825.WalkSpeed~=(971 -(245 + 702)))) then v825.WalkSpeed=75 -51 ;end end break;end end end end);break;end end end v8.CharacterAdded:Connect(function(v246) v59=v246;v45=v246:WaitForChild("Humanoid");task.wait(0.1 + 0 );if v65 then v67();v68();end end);v3.AddToggle("Fake Speed Coil",false,function(v247) v65=v247;if v65 then local v441=1898 -(260 + 1638) ;while true do if ((440 -(382 + 58))==v441) then v67();v68();break;end end else v67();if v66 then local v571=0 -0 ;while true do if (0==v571) then v66:Disconnect();v66=nil;break;end end end end end);local v6=game:GetService("Players");local v7=game:GetService("RunService");local v8=v6.LocalPlayer;local v13=Vector3.new(0,60,4);local v14=130;local v69=Vector3.new( -1,62, -(219 + 44));local v15=false;local v17=nil;v7.Heartbeat:Connect(function() local v248=0;local v249;local v250;local v251;local v252;while true do if (v248==3) then v252=(v251-v13).Magnitude;if (v252<=v14) then if v17 then v250.CFrame=CFrame.new(v17);end else v17=v251;end break;end if (0==v248) then if  not v15 then return;end v249=v8.Character;v248=1 -0 ;end if (v248==(5 -3)) then if  not v250 then return;end v251=v250.Position;v248=3;end if (v248==1) then if  not v249 then return;end v250=v249:FindFirstChild("HumanoidRootPart");v248=1207 -(902 + 303) ;end end end);v2.AddToggle("AutoWin",false,function(v253) local v254=0;while true do if (v254==(0 -0)) then v15=v253;if v253 then local v638=0 -0 ;local v639;local v640;while true do if ((0 + 0)==v638) then v639=v8.Character;v640=v639 and v639:FindFirstChild("HumanoidRootPart") ;v638=1;end if (v638==(1691 -(1121 + 569))) then if v640 then local v807=(v640.Position-v13).Magnitude;if (v807<=v14) then local v831=0;while true do if (v831==0) then v640.CFrame=CFrame.new(v69);v17=v69;break;end end else v17=v640.Position;end end break;end end else v17=nil;end break;end end end);v2.AddButton("Sit",function() local v255=0;local v256;local v257;while true do if (v255==(215 -(22 + 192))) then if v257 then local v641=683 -(483 + 200) ;local v642;while true do if (v641==(1463 -(1404 + 59))) then v642=v257:FindFirstChild("Humanoid");if v642 then local v808=0 -0 ;while true do if (v808==(0 -0)) then v642:ChangeState(Enum.HumanoidStateType.Seated);v642.Sit=true;v808=766 -(468 + 297) ;end if (v808==1) then task.wait(0.1);v642:ChangeState(Enum.HumanoidStateType.Seated);v808=564 -(334 + 228) ;end if ((6 -4)==v808) then v642.Sit=true;break;end end end break;end end end break;end if (0==v255) then v256=game.Players.LocalPlayer;v257=v256.Character;v255=2 -1 ;end end end);local v70=workspace:WaitForChild("LavaPart");local v71=v70.Size;local v72=v70.Material;local v73=v70.Transparency;local v74=v70.CanCollide;v3.AddToggle("LavaWalk",false,function(v258) if v258 then v70.Material=Enum.Material.SmoothPlastic;v70.Transparency=1 -0 ;v70.CanCollide=true;v70.Size=v71 + Vector3.new(2 + 4 ,238 -(141 + 95) ,6 + 0 ) ;else v70.Size=v71;v70.Material=v72;v70.Transparency=v73;v70.CanCollide=v74;end end);local v75=false;local v7=game:GetService("RunService");local v6=game:GetService("Players");local v76;v3.AddToggle("AntiKB",false,function(v259) local v260=0;while true do if (v260==(2 -1)) then if v75 then v76=v7.Heartbeat:Connect(function() local v701=v6.LocalPlayer.Character;if  not v701 then return;end local v702=v701:FindFirstChild("HumanoidRootPart");local v703=v701:FindFirstChildOfClass("Humanoid");if ( not v702 or  not v703) then return;end if v703.Sit then v703.Sit=false;v703:ChangeState(Enum.HumanoidStateType.GettingUp);end for v749,v750 in ipairs(v702:GetChildren()) do if (v750:IsA("BodyVelocity") or v750:IsA("BodyForce") or v750:IsA("BodyPosition") or v750:IsA("LinearVelocity") or v750:IsA("VectorForce") or v750:IsA("Torque") or v750:IsA("AngularVelocity")) then v750:Destroy();end end local v704=v702.AssemblyLinearVelocity;local v705=24;local v706=80;local v707=math.clamp(v704.X, -v705,v705);local v708=math.clamp(v704.Y, -v706,v706);local v709=math.clamp(v704.Z, -v705,v705);v702.AssemblyLinearVelocity=Vector3.new(v707,v708,v709);local v711=v702.AssemblyAngularVelocity;if (v711.Magnitude>15) then v702.AssemblyAngularVelocity=Vector3.zero;end end);end break;end if (v260==(0 -0)) then v75=v259;if v76 then v76:Disconnect();v76=nil;end v260=1 + 0 ;end end end);local v6=game:GetService("Players");local v7=game:GetService("RunService");local v77=v6.LocalPlayer;local v78=false;local v79={};local v80={};local function v81(v261,v262) local v263=0;while true do if (v263==(0 -0)) then if  not v261 then return;end for v572,v573 in ipairs(v261:GetChildren()) do if (v573:IsA("BasePart") and (v573.Name~="HumanoidRootPart")) then v573.CanCollide= not v262;end end break;end end end local function v82(v264) if ( not v264 or (v264==v77.Character)) then return;end if v80[v264] then local v451=0 + 0 ;while true do if (v451==0) then for v713,v714 in ipairs(v80[v264]) do v714:Disconnect();end v80[v264]=nil;break;end end end v81(v264,v78);local v265={};local v266=v264.ChildAdded:Connect(function(v389) if (v389:IsA("BasePart") and (v389.Name~="HumanoidRootPart")) then v389.CanCollide= not v78;end end);table.insert(v265,v266);local v267=v7.Stepped:Connect(function() if (v264 and v264:IsDescendantOf(workspace)) then for v574,v575 in ipairs(v264:GetChildren()) do if (v575:IsA("BasePart") and (v575.Name~="HumanoidRootPart")) then local v715= not v78;if (v575.CanCollide~=v715) then v575.CanCollide=v715;end end end end end);table.insert(v265,v267);local v268=v264.Destroying:Connect(function() if v80[v264] then for v576,v577 in ipairs(v80[v264]) do v577:Disconnect();end v80[v264]=nil;end end);table.insert(v265,v268);v80[v264]=v265;end local function v83(v270) local v271=0 + 0 ;local v272;while true do if (1==v271) then v272=v270.CharacterAdded:Connect(function(v578) v82(v578);end);v79[v270]=v272;break;end if ((0 -0)==v271) then if (v270==v77) then return;end if v270.Character then v82(v270.Character);end v271=1 + 0 ;end end end local function v84(v273) if v79[v273] then v79[v273]:Disconnect();v79[v273]=nil;end if (v273.Character and v80[v273.Character]) then for v500,v501 in ipairs(v80[v273.Character]) do v501:Disconnect();end v80[v273.Character]=nil;end end for v274,v275 in ipairs(v6:GetPlayers()) do v83(v275);end v6.PlayerAdded:Connect(v83);v6.PlayerRemoving:Connect(v84);local v85=v3.AddToggle("Anti-Fling",false,function(v276) v78=v276;for v390,v391 in pairs(v80) do if (v390 and v390:IsDescendantOf(workspace)) then v81(v390,v78);end end end);v77.Chatted:Connect(function(v277) v277=v277:lower();if (v277==";af on") then v78=true;for v502,v503 in pairs(v80) do if (v502 and v502:IsDescendantOf(workspace)) then v81(v502,true);end end elseif (v277==";af off") then v78=false;for v644,v645 in pairs(v80) do if (v644 and v644:IsDescendantOf(workspace)) then v81(v644,false);end end end end);local function v86() local v278=0;while true do if (v278==(164 -(92 + 71))) then for v579,v580 in pairs(v80) do for v646,v647 in ipairs(v580) do v647:Disconnect();end end v80={};break;end if (v278==(0 + 0)) then for v581,v582 in pairs(v79) do v582:Disconnect();end v79={};v278=1 -0 ;end end end v77.CharacterAdded:Connect(function() v86();for v392,v393 in ipairs(v6:GetPlayers()) do if (v393~=v77) then v83(v393);end end end);local v6=game:GetService("Players");local v87=game:GetService("VirtualUser");local v88;local v89;v2.AddButton("Anti AFK",function() local v279=0;local v280;while true do if (v279==0) then if v88 then return;end v89=Instance.new("ScreenGui");v89.Name="AntiAFKStatus";v279=766 -(574 + 191) ;end if (v279==(2 + 0)) then v280.Name="Status";v280.Size=UDim2.new(0 -0 ,113 + 107 ,849 -(254 + 595) ,40);v280.Position=UDim2.new(126.5 -(55 + 71) , -(144 -34),1790 -(573 + 1217) ,20);v279=3;end if (v279==(2 -1)) then v89.ResetOnSpawn=false;v89.Parent=v6.LocalPlayer:WaitForChild("PlayerGui");v280=Instance.new("TextLabel");v279=1 + 1 ;end if (v279==(8 -3)) then v280.Parent=v89;v88=v6.LocalPlayer.Idled:Connect(function() v87:CaptureController();v87:ClickButton2(Vector2.new());end);break;end if (v279==3) then v280.BackgroundTransparency=939.3 -(714 + 225) ;v280.BackgroundColor3=Color3.fromRGB(0 -0 ,0,0 -0 );v280.TextColor3=Color3.fromRGB(0 + 0 ,368 -113 ,806 -(118 + 688) );v279=4;end if (v279==(52 -(25 + 23))) then v280.TextScaled=true;v280.Font=Enum.Font.SourceSansBold;v280.Text="🟢 Anti AFK by Enygma";v279=1 + 4 ;end end end);local v90=false;v4.AddToggle("auto chomp plant (no aimbot)",false,function(v281) local v282=1886 -(927 + 959) ;while true do if ((0 -0)==v282) then v90=v281;task.spawn(function() while v90 do local v648=game.Players.LocalPlayer;local v649=v648.Character or v648.CharacterAdded:Wait() ;local v650=v649:WaitForChild("Humanoid");local v651=v649:FindFirstChild("CHOMP PLANT") or v648.Backpack:FindFirstChild("CHOMP PLANT") ;if (v651 and v651:IsA("Tool")) then local v751=732 -(16 + 716) ;while true do if (v751==0) then v650:EquipTool(v651);task.wait();v751=1;end if ((1 -0)==v751) then v650:UnequipTools();break;end end end task.wait();end end);break;end end end);local v6=game:GetService("Players");local v7=game:GetService("RunService");local v9=game:GetService("Workspace");local v33=v6.LocalPlayer;local v59=v33.Character or v33.CharacterAdded:Wait() ;local v91=v59:WaitForChild("HumanoidRootPart");local v92=Instance.new("Folder",v9);local v93=Instance.new("Part",v92);local v94=Instance.new("Attachment",v93);v93.Anchored=true;v93.CanCollide=false;v93.Transparency=1;if  not getgenv().Network then local v394=97 -(11 + 86) ;while true do if ((0 -0)==v394) then getgenv().Network={BaseParts={},Velocity=Vector3.new(425.46262423999997 -(175 + 110) ,353.46262423999997 -213 ,140.46262424)};Network.RetainPart=function(v652) if ((typeof(v652)=="Instance") and v652:IsA("BasePart") and v652:IsDescendantOf(v9)) then table.insert(Network.BaseParts,v652);v652.CustomPhysicalProperties=PhysicalProperties.new(0,0 -0 ,1796 -(503 + 1293) ,0 -0 ,0);v652.CanCollide=false;end end;break;end end end local v98=nil;local function v99() if v98 then return;end v33.ReplicationFocus=v9;v98=v7.Heartbeat:Connect(function() local v395=0 + 0 ;while true do if (v395==(1061 -(810 + 251))) then sethiddenproperty(v33,"SimulationRadius",math.huge);for v653,v654 in pairs(Network.BaseParts) do if v654:IsDescendantOf(v9) then v654.Velocity=Network.Velocity;end end break;end end end);end local function v100() if v98 then local v454=0;while true do if (v454==(0 + 0)) then v98:Disconnect();v98=nil;break;end end end pcall(function() sethiddenproperty(v33,"SimulationRadius",100);end);end local v101={Speed=1 + 1 ,Distance=14 + 1 };local v102=false;local v103={};local v104={};local v105=nil;local v106=nil;local function v107(v284,v285) if ( not v284 or  not v284.Parent) then return false;end if  not v284:IsA("BasePart") then return false;end if v284.Anchored then return false;end if v284:IsDescendantOf(v285) then return false;end if (v284==v93) then return false;end if v284:IsDescendantOf(v92) then return false;end return true;end local function v108(v286,v287) local v288=533 -(43 + 490) ;local v289;while true do if ((735 -(711 + 22))==v288) then v289.Parent=v286;v289.MaxForce=Vector3.new(math.huge,math.huge,math.huge);v288=11 -8 ;end if (v288==1) then for v585,v586 in pairs(v286:GetChildren()) do if (v586:IsA("BodyPosition") or v586:IsA("BodyGyro")) then v586:Destroy();end end v289=Instance.new("BodyPosition");v288=2;end if (v288==(859 -(240 + 619))) then if  not v107(v286,v287) then return;end if table.find(v104,v286) then return;end v288=1 + 0 ;end if (v288==(4 -1)) then v289.Position=v287.Head.Position;table.insert(v103,v289);v288=1 + 3 ;end if (v288==(1748 -(1344 + 400))) then table.insert(v104,v286);v286.CanCollide=false;break;end end end local function v109() local v290=0;while true do if (2==v290) then v103={};for v587,v588 in pairs(v104) do if (v588 and v588.Parent) then v588.CanCollide=true;end end v290=408 -(255 + 150) ;end if ((3 + 0)==v290) then v104={};if  not orbitActive then v100();end break;end if (v290==0) then v102=false;if v105 then local v655=0;while true do if (v655==(0 + 0)) then task.cancel(v105);v105=nil;break;end end end v290=1;end if (v290==(4 -3)) then if v106 then task.cancel(v106);v106=nil;end for v589,v590 in pairs(v103) do if (v590 and v590.Parent) then v590:Destroy();end end v290=6 -4 ;end end end local function v110() if v102 then return;end v102=true;v99();local v291=v33.Character;if ( not v291 or  not v291:FindFirstChild("Head")) then v102=false;if  not orbitActive then v100();end return;end v103={};v104={};for v396,v397 in pairs(workspace:GetDescendants()) do v108(v397,v291);end v105=task.spawn(function() while v102 do local v455=v33.Character;if ( not v455 or  not v455:FindFirstChild("Head")) then break;end for v523= #v103,1740 -(404 + 1335) , -(407 -(183 + 223)) do local v524=0 -0 ;local v525;while true do if (v524==(0 + 0)) then v525=v103[v523];if (v525 and v525.Parent) then v525.Position=v455.Head.Position;else table.remove(v103,v523);end break;end end end task.wait(0.1 + 0 );end end);v106=task.spawn(function() while v102 do local v456=v33.Character;if ( not v456 or  not v456:FindFirstChild("Head")) then break;end for v526,v527 in pairs(workspace:GetDescendants()) do if  not v102 then break;end v108(v527,v456);end for v528= #v104,338 -(10 + 327) , -(1 + 0) do local v529=338 -(118 + 220) ;local v530;while true do if (v529==(0 + 0)) then v530=v104[v528];if ( not v530 or  not v530.Parent) then table.remove(v104,v528);end break;end end end task.wait(0.5);end end);end local v111=false;local v112={};local v113={};local v114=nil;local v115=nil;local v116=449 -(108 + 341) ;local function v117(v292,v293) local v294=0 + 0 ;while true do if (v294==(8 -6)) then if (v292==v93) then return false;end if v292:IsDescendantOf(v92) then return false;end v294=3;end if (v294==0) then if ( not v292 or  not v292.Parent) then return false;end if  not v292:IsA("BasePart") then return false;end v294=1494 -(711 + 782) ;end if ((5 -2)==v294) then return true;end if (v294==(470 -(270 + 199))) then if v292.Anchored then return false;end if v292:IsDescendantOf(v293) then return false;end v294=2;end end end local function v118(v295,v296) if  not v117(v295,v296) then return;end if table.find(v113,v295) then return;end for v398,v399 in pairs(v295:GetChildren()) do if (v399:IsA("BodyPosition") or v399:IsA("BodyGyro")) then v399:Destroy();end end v295.CustomPhysicalProperties=PhysicalProperties.new(0,0,0 + 0 ,0,1819 -(580 + 1239) );v295.CanCollide=false;local v299=Instance.new("BodyPosition");v299.Parent=v295;v299.MaxForce=Vector3.new(math.huge,math.huge,math.huge);v299.Position=v296.Head.Position;table.insert(v112,{force=v299,part=v295,angleOffset=math.random() * math.pi * (5 -3) ,heightOffset=(math.random() -(0.5 + 0)) * (1 + 4) });table.insert(v113,v295);end local function v119() v111=false;if v114 then task.cancel(v114);v114=nil;end if v115 then local v457=0 + 0 ;while true do if ((0 -0)==v457) then task.cancel(v115);v115=nil;break;end end end for v400,v401 in pairs(v112) do local v402=0 + 0 ;while true do if (v402==(1167 -(645 + 522))) then if (v401.force and v401.force.Parent) then v401.force:Destroy();end if (v401.part and v401.part.Parent) then v401.part.CanCollide=true;end break;end end end v112={};v113={};v116=1790 -(1010 + 780) ;if  not v102 then v100();end end local function v120() local v304=0 + 0 ;local v305;while true do if (v304==(14 -11)) then v113={};for v591,v592 in pairs(workspace:GetDescendants()) do v118(v592,v305);end v304=11 -7 ;end if (v304==0) then if v111 then return;end v111=true;v304=1;end if (2==v304) then if ( not v305 or  not v305:FindFirstChild("Head")) then v111=false;if  not v102 then v100();end return;end v112={};v304=1839 -(1045 + 791) ;end if (v304==(2 -1)) then v99();v305=v33.Character;v304=2 -0 ;end if (v304==(509 -(351 + 154))) then v114=task.spawn(function() local v593=tick();while v111 do local v656=v33.Character;if ( not v656 or  not v656:FindFirstChild("Head")) then break;end local v657=tick();local v658=v657-v593 ;v593=v657;v116=v116 + (v101.Speed * v658) ;local v659=v656.Head.Position;local v660=v101.Distance;for v720,v721 in pairs(v112) do if (v721.force and v721.force.Parent and v721.part and v721.part.Parent) then local v779=v116 + v721.angleOffset ;local v780=v659.X + (math.cos(v779) * v660) ;local v781=v659.Z + (math.sin(v779) * v660) ;local v782=v659.Y + v721.heightOffset + (math.sin(v779 * (1576 -(1281 + 293)) ) * 2) ;v721.force.Position=Vector3.new(v780,v782,v781);end end v7.Heartbeat:Wait();end end);v115=task.spawn(function() while v111 do local v661=v33.Character;if ( not v661 or  not v661:FindFirstChild("Head")) then break;end for v722,v723 in pairs(workspace:GetDescendants()) do if  not v111 then break;end v118(v723,v661);end for v724= #v112,267 -(28 + 238) , -(2 -1) do local v725=1559 -(1381 + 178) ;local v726;while true do if ((0 + 0)==v725) then v726=v112[v724];if ( not v726.part or  not v726.part.Parent or  not v726.force or  not v726.force.Parent) then table.remove(v112,v724);end break;end end end for v727= #v113,1 + 0 , -(1 + 0) do local v728=v113[v727];if ( not v728 or  not v728.Parent) then table.remove(v113,v727);end end task.wait(0.5 -0 );end end);break;end end end v33.CharacterAdded:Connect(function() v109();v119();end);local v121=false;local v122=nil;local v123={};local v124=nil;local v125=0 + 0 ;local v126=1;local v127=20;local v128=0.05;local function v129(v306) v306=tostring(v306 or "" ):lower():gsub("^%s+",""):gsub("%s+$","");if (v306=="") then return nil;end for v403,v404 in ipairs(v6:GetPlayers()) do if (v404~=v33) then if ((v404.Name:lower()==v306) or (v404.DisplayName:lower()==v306)) then return v404;end end end for v405,v406 in ipairs(v6:GetPlayers()) do if (v406~=v33) then if (v406.Name:lower():find(v306,471 -(381 + 89) ,true) or v406.DisplayName:lower():find(v306,1 + 0 ,true)) then return v406;end end end return nil;end local function v130(v307,v308) if ( not v307 or  not v307:IsA("Part")) then return false;end if ( not v307.Parent or v307.Anchored) then return false;end if (v33.Character and v307:IsDescendantOf(v33.Character)) then return false;end if (v308 and v307:IsDescendantOf(v308)) then return false;end if (v307.Name=="Handle") then return false;end local v309=v307.Parent;if (v309 and v309:FindFirstChildOfClass("Humanoid")) then return false;end if (v307:FindFirstAncestorOfClass("Model") and v307:FindFirstAncestorOfClass("Model"):FindFirstChildOfClass("Humanoid")) then return false;end return true;end local function v131(v310) local v311=0;while true do if (v311==(0 + 0)) then if  not v310 then return;end for v594,v595 in ipairs(v310:GetChildren()) do if ((v595.Name=="TargetOrbitAttachment") or (v595.Name=="TargetOrbitTorque") or (v595.Name=="TargetOrbitAlignPosition")) then pcall(function() v595:Destroy();end);end end break;end end end local function v132(v312) local v313=0 -0 ;local v314;local v315;local v316;while true do if (v313==(1158 -(1074 + 82))) then if  not v314 then local v662=0;while true do if (v662==(1 -0)) then v314.Parent=v312;break;end if (v662==0) then v314=Instance.new("Attachment");v314.Name="TargetOrbitAttachment";v662=1785 -(214 + 1570) ;end end end if  not v315 then v315=Instance.new("Torque");v315.Name="TargetOrbitTorque";v315.Attachment0=v314;v315.RelativeTo=Enum.ActuatorRelativeTo.World;v315.Torque=Vector3.new(101455 -(990 + 465) ,100000,41225 + 58775 );v315.Parent=v312;end v313=3;end if (0==v313) then if  not v130(v312,v122 and v122.Character ) then return false;end v314=v312:FindFirstChild("TargetOrbitAttachment");v313=1 + 0 ;end if (v313==(4 + 0)) then v123[v312]=true;return true;end if (v313==(11 -8)) then if  not v316 then v316=Instance.new("AlignPosition");v316.Name="TargetOrbitAlignPosition";v316.Mode=Enum.PositionAlignmentMode.OneAttachment;v316.Attachment0=v314;v316.MaxForce=10000000000000000;v316.MaxVelocity=math.huge;v316.Responsiveness=200;v316.RigidityEnabled=false;v316.Parent=v312;end v312.CanCollide=false;v313=1730 -(1668 + 58) ;end if ((627 -(512 + 114))==v313) then v315=v312:FindFirstChild("TargetOrbitTorque");v316=v312:FindFirstChild("TargetOrbitAlignPosition");v313=2;end end end local function v133(v317) for v407,v408 in ipairs(v9:GetDescendants()) do if v130(v408,v317) then v132(v408);end end end local function v134(v318) local v319=0 -0 ;while true do if (v319==(0 -0)) then if v318 then local v679=0 -0 ;while true do if ((0 + 0)==v679) then v131(v318);pcall(function() v318.CanCollide=true;end);break;end end end v123[v318]=nil;break;end end end local function v135() v121=false;if v124 then local v458=0 + 0 ;while true do if (v458==0) then task.cancel(v124);v124=nil;break;end end end for v409 in pairs(v123) do v134(v409);end v123={};v122=nil;v125=0 + 0 ;end local function v136() if v121 then v135();end v121=true;v125=0 -0 ;v124=task.spawn(function() local v410=1994 -(109 + 1885) ;while v121 do local v459=1469 -(1269 + 200) ;local v460;local v461;local v462;local v463;while true do if (v459==(3 -1)) then v463=v462 and v462:FindFirstChild("HumanoidRootPart") ;if v463 then local v756=0;local v757;local v758;while true do if (v756==2) then v758=815 -(98 + 717) ;for v826 in pairs(v123) do if ( not v130(v826,v462) or  not v826:IsDescendantOf(v9)) then v134(v826);else v758=v758 + 1 ;local v839=v758;local v840=math.max(827 -(802 + 24) ,0 -0 );local v841=v125 + (v839 * ((math.pi * (2 -0))/math.max(1 + 0 , #v123))) ;local v842=v757 + Vector3.new(math.cos(v841) * v126 ,0,math.sin(v841) * v126 ) ;local v843=v826:FindFirstChild("TargetOrbitAlignPosition");if v843 then v843.Position=v842;end end end break;end if (v756==(0 + 0)) then v410=v410 + v128 ;if (v410>=v128) then v410=0;v133(v462);end v756=1 + 0 ;end if (v756==1) then v125=v125 + math.rad(v127) ;v757=v463.Position;v756=2;end end else task.wait(0.05 + 0 );end v459=8 -5 ;end if ((3 -2)==v459) then if (v461~=v122) then v122=v461;for v786 in pairs(v123) do if  not v130(v786,v122 and v122.Character ) then v134(v786);end end end v462=v122 and v122.Character ;v459=2;end if (3==v459) then v7.Heartbeat:Wait();break;end if (v459==0) then v460=tostring(getgenv().TargetName or "" );v461=v129(v460);v459=1 + 0 ;end end end end);end v4.AddToggle("Magnet",false,function(v320) if v320 then v110();else v109();end end);v4.AddToggle("Orbit Magnet",false,function(v321) if v321 then v120();else v119();end end);v4.AddSlider("orbit velocity",1 + 0 ,17 + 3 ,1 + 0 ,function(v322) v101.Speed=v322;end);v4.AddSlider("orbit distance",5 + 5 ,200,30,function(v324) v101.Distance=v324;end);local v137=game:GetService("ReplicatedStorage");local v7=game:GetService("RunService");local v6=game:GetService("Players");local v138=v6.LocalPlayer;local v139=false;local v140=nil;if  not v137:FindFirstChild("juisdfj0i32i0eidsuf0iok") then local v411=Instance.new("Decal");v411.Name="juisdfj0i32i0eidsuf0iok";v411.Parent=v137;end local function v141() local v326=1433 -(797 + 636) ;local v327;local v328;local v329;local v330;while true do if (v326==(0 -0)) then v327,v328,v329,v330=nil,nil,nil,1619.1 -(1427 + 192) ;while v139 do local v596=0 + 0 ;while true do if (v596==0) then v7.Heartbeat:Wait();v327=v138.Character;v596=2 -1 ;end if (v596==(1 + 0)) then v328=v327 and v327:FindFirstChild("HumanoidRootPart") ;if v328 then local v801=0 + 0 ;while true do if (v801==(327 -(192 + 134))) then v7.RenderStepped:Wait();v328.Velocity=v329;v801=1278 -(316 + 960) ;end if ((0 + 0)==v801) then v329=v328.Velocity;v328.Velocity=(v329 * (77171577 + 22828422)) + Vector3.new(0 + 0 ,382300571 -282300572 ,0) ;v801=552 -(83 + 468) ;end if (v801==(1808 -(1202 + 604))) then v7.Stepped:Wait();v328.Velocity=v329 + Vector3.new(0 -0 ,v330,0 -0 ) ;v801=8 -5 ;end if (v801==3) then v330= -v330;break;end end end break;end end end break;end end end local function v142(v331) local v332=325 -(45 + 280) ;while true do if (v332==0) then v139=v331;if v139 then local v680=0 + 0 ;while true do if (v680==(0 + 0)) then if v140 then v140=nil;end v140=coroutine.create(v141);v680=1;end if (v680==(1 + 0)) then coroutine.resume(v140);break;end end end break;end end end v4.AddToggle("Touch Fling",false,function(v333) v142(v333);end);local v6=game:GetService("Players");local v138=v6.LocalPlayer;local v143=false;local v144=function(v334) local v335=0;while true do if (v335==0) then v334=v334:lower();if ((v334=="all") or (v334=="others")) then local v681=0;while true do if (v681==0) then v143=true;return;end end elseif (v334=="random") then local v760=0 + 0 ;local v761;while true do if (v760==(0 + 0)) then v761=v6:GetPlayers();if table.find(v761,v138) then table.remove(v761,table.find(v761,v138));end v760=1;end if (v760==(1 -0)) then return v761[math.random( #v761)];end end elseif ((v334~="random") and (v334~="all") and (v334~="others")) then for v810,v811 in next,v6:GetPlayers() do if (v811~=v138) then if v811.Name:lower():match("^"   .. v334 ) then return v811;elseif v811.DisplayName:lower():match("^"   .. v334 ) then return v811;end end end else return;end break;end end end;local v145=function(v336) local v337=v138.Character;local v338=v337 and v337:FindFirstChildOfClass("Humanoid") ;local v339=v338 and v338.RootPart ;local v340=v336.Character;local v341;local v342;local v343;local v344;local v345;if v340:FindFirstChildOfClass("Humanoid") then v341=v340:FindFirstChildOfClass("Humanoid");end if (v341 and v341.RootPart) then v342=v341.RootPart;end if v340:FindFirstChild("Head") then v343=v340.Head;end if v340:FindFirstChildOfClass("Accessory") then v344=v340:FindFirstChildOfClass("Accessory");end if (v344 and v344:FindFirstChild("Handle")) then v345=v344.Handle;end if (v337 and v338 and v339) then if (v339.Velocity.Magnitude<50) then getgenv().OldPos=v339.CFrame;end if (v341 and v341.Sit and  not v143) then return;end if v343 then workspace.CurrentCamera.CameraSubject=v343;elseif ( not v343 and v345) then workspace.CurrentCamera.CameraSubject=v345;elseif (v341 and v342) then workspace.CurrentCamera.CameraSubject=v341;end if  not v340:FindFirstChildWhichIsA("BasePart") then return;end local v467=function(v535,v536,v537) local v538=1911 -(340 + 1571) ;while true do if (v538==(0 + 0)) then v339.CFrame=CFrame.new(v535.Position) * v536 * v537 ;v337:SetPrimaryPartCFrame(CFrame.new(v535.Position) * v536 * v537 );v538=1773 -(1733 + 39) ;end if (v538==(2 -1)) then v339.Velocity=Vector3.new(90000000,90000000 * (1044 -(125 + 909)) ,90000000);v339.RotVelocity=Vector3.new(900001948 -(1096 + 852) ,900000000,403716679 + 496283321 );break;end end end;local v468=function(v539) local v540=2 -0 ;local v541=tick();local v542=0;repeat if (v339 and v341) then if (v539.Velocity.Magnitude<(49 + 1)) then v542=v542 + (612 -(409 + 103)) ;v467(v539,CFrame.new(236 -(46 + 190) ,1.5,0) + ((v341.MoveDirection * v539.Velocity.Magnitude)/(96.25 -(51 + 44))) ,CFrame.Angles(math.rad(v542),0 + 0 ,0));task.wait();v467(v539,CFrame.new(0, -1.5,0) + ((v341.MoveDirection * v539.Velocity.Magnitude)/(1318.25 -(1114 + 203))) ,CFrame.Angles(math.rad(v542),726 -(228 + 498) ,0 + 0 ));task.wait();v467(v539,CFrame.new(2.25 + 0 ,664.5 -(174 + 489) , -(5.25 -3)) + ((v341.MoveDirection * v539.Velocity.Magnitude)/(1906.25 -(830 + 1075))) ,CFrame.Angles(math.rad(v542),0,524 -(303 + 221) ));task.wait();v467(v539,CFrame.new( -(1271.25 -(231 + 1038)), -(1.5 + 0),2.25) + ((v341.MoveDirection * v539.Velocity.Magnitude)/1.25) ,CFrame.Angles(math.rad(v542),1162 -(171 + 991) ,0));task.wait();v467(v539,CFrame.new(0 -0 ,2.5 -1 ,0 -0 ) + v341.MoveDirection ,CFrame.Angles(math.rad(v542),0,0));task.wait();v467(v539,CFrame.new(0, -1.5,0) + v341.MoveDirection ,CFrame.Angles(math.rad(v542),0 + 0 ,0));task.wait();else v467(v539,CFrame.new(0,1.5,v341.WalkSpeed),CFrame.Angles(math.rad(315 -225 ),0,0 -0 ));task.wait();v467(v539,CFrame.new(0 -0 , -1.5, -v341.WalkSpeed),CFrame.Angles(0,0 -0 ,1248 -(111 + 1137) ));task.wait();v467(v539,CFrame.new(158 -(91 + 67) ,2.5 -1 ,v341.WalkSpeed),CFrame.Angles(math.rad(23 + 67 ),0,0));task.wait();v467(v539,CFrame.new(0,1.5,v342.Velocity.Magnitude/(524.25 -(423 + 100)) ),CFrame.Angles(math.rad(1 + 89 ),0 -0 ,0 + 0 ));task.wait();v467(v539,CFrame.new(0, -(772.5 -(326 + 445)), -v342.Velocity.Magnitude/1.25 ),CFrame.Angles(0 -0 ,0 -0 ,0 -0 ));task.wait();v467(v539,CFrame.new(711 -(530 + 181) ,882.5 -(614 + 267) ,v342.Velocity.Magnitude/(33.25 -(19 + 13)) ),CFrame.Angles(math.rad(90),0,0 -0 ));task.wait();v467(v539,CFrame.new(0, -(2.5 -1),0 -0 ),CFrame.Angles(math.rad(90),0 + 0 ,0 -0 ));task.wait();v467(v539,CFrame.new(0 -0 , -(1813.5 -(1293 + 519)),0 -0 ),CFrame.Angles(0 -0 ,0 -0 ,0 -0 ));task.wait();v467(v539,CFrame.new(0 -0 , -(1.5 + 0),0),CFrame.Angles(math.rad( -(19 + 71)),0 -0 ,0 + 0 ));task.wait();v467(v539,CFrame.new(0 + 0 , -(1.5 + 0),1096 -(709 + 387) ),CFrame.Angles(0,0,1858 -(673 + 1185) ));task.wait();end else break;end until (v539.Velocity.Magnitude>(1450 -950)) or (v539.Parent~=v336.Character) or (v336.Parent~=v6) or ( not v336.Character==v340) or v341.Sit or (v338.Health<=0) or (tick()>(v541 + v540))  end;workspace.FallenPartsDestroyHeight=NaN-0 ;local v470=Instance.new("BodyVelocity");v470.Name="EpixVel";v470.Parent=v339;v470.Velocity=Vector3.new(1834394508 -934394508 ,900000715 -(183 + 532) ,798320340 -  -101679660 );v470.MaxForce=Vector3.new(1/(0 + 0) ,(1 -0)/(0 -0) ,1/(1880 -(446 + 1434)) );v338:SetStateEnabled(Enum.HumanoidStateType.Seated,false);if (v342 and v343) then if ((v342.CFrame.p-v343.CFrame.p).Magnitude>(1288 -(1040 + 243))) then v468(v343);else v468(v342);end elseif (v342 and  not v343) then v468(v342);elseif ( not v342 and v343) then v468(v343);elseif ( not v342 and  not v343 and v344 and v345) then v468(v345);else return;end v470:Destroy();v338:SetStateEnabled(Enum.HumanoidStateType.Seated,true);workspace.CurrentCamera.CameraSubject=v338;repeat local v543=0 -0 ;while true do if (v543==(1847 -(559 + 1288))) then v339.CFrame=getgenv().OldPos * CFrame.new(1931 -(609 + 1322) ,0.5,454 -(13 + 441) ) ;v337:SetPrimaryPartCFrame(getgenv().OldPos * CFrame.new(0 -0 ,0.5,0 -0 ) );v543=1;end if (v543==(4 -3)) then v338:ChangeState("GettingUp");table.foreach(v337:GetChildren(),function(v762,v763) if v763:IsA("BasePart") then v763.Velocity,v763.RotVelocity=Vector3.new(),Vector3.new();end end);v543=1 + 1 ;end if (2==v543) then task.wait();break;end end until (v339.Position-getgenv().OldPos.p).Magnitude<(90 -65)  workspace.FallenPartsDestroyHeight=getgenv().FPDH;else return;end end;local function v146(v346) v143=false;if ((v346:lower()=="all") or (v346:lower()=="others")) then local v477=0;while true do if (v477==(0 + 0)) then for v734,v735 in next,v6:GetPlayers() do if (v735~=v138) then pcall(function() v145(v735);end);end end return;end end end local v347=v144(v346);if (v347 and (v347~=v138)) then pcall(function() v145(v347);end);end end local function v147() for v414,v415 in next,v6:GetPlayers() do if (v415~=v138) then pcall(function() v145(v415);end);end end end v4.AddInput("Player Name","user",function(v348) getgenv().TargetName=v348;end);v4.AddButton("Execute Fling",function() if (getgenv().TargetName and (getgenv().TargetName~="")) then v146(getgenv().TargetName);end end);v4.AddButton("Fling All Players",function() v147();end);local v6=game:GetService("Players");local v33=v6.LocalPlayer;local v7=game:GetService("RunService");getgenv().TargetName=getgenv().TargetName or "" ;local v149=false;local v150=false;local v151=nil;local v152=false;local v153={};local v154=nil;local v155=0;local v156=0.12 + 0 ;local v157=0.05 -0 ;local function v158(v350) while (v155==v350) and (v149 or v150)  do local v416=v33.Character;local v417=v33:FindFirstChildOfClass("Backpack");if (v416 and v417) then local v544=0 + 0 ;local v545;while true do if (v544==(0 -0)) then v545=v416:FindFirstChildOfClass("Humanoid");if (v545 and (v545.Health>(0 + 0))) then local v788=v416:FindFirstChild("CHOMP PLANT") or v417:FindFirstChild("CHOMP PLANT") ;if (v788 and v788:IsA("Tool")) then local v812=0;while true do if (v812==(1 + 0)) then if (v788 and (v155==v350)) then v545:EquipTool(v788);end break;end if (v812==(0 + 0)) then if (v788.Parent==v416) then v545:UnequipTools();task.wait();end v788=v417:FindFirstChild("CHOMP PLANT");v812=1 + 0 ;end end end end break;end end end task.wait();end end local function v159(v351) task.spawn(function() v158(v351);end);end local function v160(v352) local v353=0 + 0 ;local v354;local v355;while true do if (v353==(433 -(153 + 280))) then v354=v352.AssemblyLinearVelocity;v355=Vector3.new(v352.Position.X + (v354.X * v156) ,v352.Position.Y + (v354.Y * v157) ,v352.Position.Z + (v354.Z * v156) );v353=2 -1 ;end if (v353==(1 + 0)) then return v355;end end end local function v161() local v356=0 + 0 ;while true do if (v356==0) then v155=v155 + 1 ;v149=false;v356=1 + 0 ;end if (v356==(2 + 0)) then v153={};v154=nil;break;end if (v356==(1 + 0)) then v150=false;if v151 then v151:Disconnect();v151=nil;end v356=2;end end end v4.AddButton("Kill(chomp plant)",function() v161();local v357=v155;v149=true;v159(v357);v151=v7.Heartbeat:Connect(function() local v418=0;local v419;local v420;local v421;local v422;local v423;local v424;local v425;local v426;while true do if (v418==(0 -0)) then if ((v155~=v357) or  not v149) then return;end v419=v33.Character;if  not v419 then return;end v420=v419:FindFirstChildOfClass("Humanoid");v418=1 + 0 ;end if ((670 -(89 + 578))==v418) then v425=v423:FindFirstChild("HumanoidRootPart");if ( not v424 or  not v425 or (v424.Health<=0)) then local v736=0;while true do if (v736==(0 + 0)) then v161();return;end end end v426=v160(v425);v421.CFrame=CFrame.new(v426 + (v425.CFrame.RightVector * (8.5 -4)) ,v426);break;end if (v418==(1051 -(572 + 477))) then if  not v422 then local v737=0;while true do if (v737==0) then v161();return;end end end v423=v422.Character;if  not v423 then return;end v424=v423:FindFirstChildOfClass("Humanoid");v418=1 + 2 ;end if (v418==(1 + 0)) then v421=v419:FindFirstChild("HumanoidRootPart");if ( not v420 or  not v421 or (v420.Health<=(0 + 0))) then v161();return;end v422=nil;for v682,v683 in ipairs(v6:GetPlayers()) do if ((v683~=v33) and (getgenv().TargetName~="") and (v683.Name:lower():sub(87 -(84 + 2) , #getgenv().TargetName)==getgenv().TargetName:lower())) then v422=v683;break;end end v418=2 -0 ;end end end);end);v4.AddButton("Kill All(chomp plant)",function() local v358=0 + 0 ;local v359;while true do if (v358==(843 -(497 + 345))) then v150=true;v153={};v358=1 + 1 ;end if (v358==3) then v151=v7.Heartbeat:Connect(function() if ((v155~=v359) or  not v150) then return;end local v603={};for v684,v685 in ipairs(v6:GetPlayers()) do if (v685~=v33) then table.insert(v603,v685);end end if ( #v603==(0 + 0)) then v161();return;end local v604=true;for v686,v687 in ipairs(v603) do if  not v153[v687.UserId] then v604=false;break;end end if v604 then local v738=0;while true do if (v738==(1333 -(605 + 728))) then v161();return;end end end local v605=false;if v154 then local v739=0;local v740;while true do if (v739==0) then v740=v154.Character;if  not v740 then v605=true;else local v827=0 + 0 ;local v828;while true do if (v827==0) then v828=v740:FindFirstChildOfClass("Humanoid");if ( not v828 or (v828.Health<=0)) then v605=true;end break;end end end break;end end end if ( not v154 or v605) then if v154 then v153[v154.UserId]=true;end v154=nil;for v764,v765 in ipairs(v603) do if  not v153[v765.UserId] then local v805=v765.Character;if v805 then local v829=v805:FindFirstChildOfClass("Humanoid");local v830=v805:FindFirstChild("HumanoidRootPart");if (v829 and v830 and (v829.Health>(0 -0))) then v154=v765;break;end end end end end if  not v154 then return;end local v606=v33.Character;if  not v606 then return;end local v607=v606:FindFirstChildOfClass("Humanoid");local v608=v606:FindFirstChild("HumanoidRootPart");if ( not v607 or  not v608) then return;end local v609=v154.Character;if  not v609 then return;end local v610=v609:FindFirstChildOfClass("Humanoid");local v611=v609:FindFirstChild("HumanoidRootPart");if ( not v610 or  not v611 or (v610.Health<=(0 + 0))) then return;end local v612=v160(v611);v608.CFrame=CFrame.new(v612 + (v611.CFrame.RightVector * (14 -10)) ,v612);end);break;end if (v358==(0 + 0)) then v161();v359=v155;v358=2 -1 ;end if (v358==(2 + 0)) then v154=nil;v159(v359);v358=492 -(457 + 32) ;end end end);v4.AddButton("Stop Kill",function() v161();end);v4.AddToggle("Troll player (Magnet)",false,function(v360) if v360 then v136();else v135();end end);v33.CharacterAdded:Connect(function() local v361=0;while true do if ((1 + 0)==v361) then v135();if ( not v149 and  not v150) then return;end v361=2;end if ((1402 -(832 + 570))==v361) then v109();v119();v361=1 + 0 ;end if (v361==2) then task.wait(0.5 + 0 );break;end end end);v5.AddParagraph("Map Teleport","");v5.AddButton("Low",function() local v362=0 -0 ;local v363;while true do if (v362==(0 + 0)) then v363=v33.Character;if (v363 and v363:FindFirstChild("HumanoidRootPart")) then v363.HumanoidRootPart.CFrame=CFrame.new(799 -(588 + 208) ,13 -8 , -(1804 -(884 + 916)));end break;end end end);v5.AddButton("Mid",function() local v364=v33.Character;if (v364 and v364:FindFirstChild("HumanoidRootPart")) then v364.HumanoidRootPart.CFrame=CFrame.new(6 -3 ,73 + 52 , -(657 -(232 + 421)));end end);v5.AddButton("Top",function() local v365=v33.Character;if (v365 and v365:FindFirstChild("HumanoidRootPart")) then v365.HumanoidRootPart.CFrame=CFrame.new(1892 -(1569 + 320) ,62 + 188 , -4);end end);v5.AddParagraph("Lobby Teleport","");v5.AddButton("Spawn",function() local v366=v33.Character;if (v366 and v366:FindFirstChild("HumanoidRootPart")) then v366.HumanoidRootPart.CFrame=CFrame.new( -(2 + 8),62, -(768 -540));end end);v5.AddButton("Parkour",function() local v367=0;local v368;while true do if (v367==(605 -(316 + 289))) then v368=v33.Character;if (v368 and v368:FindFirstChild("HumanoidRootPart")) then v368.HumanoidRootPart.CFrame=CFrame.new(7 -4 ,3 + 61 , -(1883 -(666 + 787)));end break;end end end);v5.AddButton("Parkour vip",function() local v369=425 -(360 + 65) ;local v370;while true do if (v369==0) then v370=v33.Character;if (v370 and v370:FindFirstChild("HumanoidRootPart")) then v370.HumanoidRootPart.CFrame=CFrame.new( -(65 + 4),319 -(79 + 175) , -477);end break;end end end);local v6=game:GetService("Players");local v162=game:GetService("UserInputService");local v7=game:GetService("RunService");local v33=v6.LocalPlayer;local v163=false;v162.JumpRequest:Connect(function() if  not v163 then return;end local v371=v33.Character;if  not v371 then return;end local v372=v371:FindFirstChildOfClass("Humanoid");if v372 then v372:ChangeState(Enum.HumanoidStateType.Jumping);end end);v3.AddToggle("Infinite Jump",false,function(v373) v163=v373;end);local v164=false;local v165={};local function v166(v374) for v427,v428 in ipairs(v374:GetDescendants()) do if v428:IsA("BasePart") then local v550=0 -0 ;while true do if (v550==(0 + 0)) then if (v165[v428]==nil) then v165[v428]=v428.CanCollide;end v428.CanCollide=false;break;end end end end end local function v167() for v429,v430 in pairs(v165) do if (v429 and v429.Parent) then v429.CanCollide=v430;end v165[v429]=nil;end end v3.AddToggle("NoClip",false,function(v375) local v376=0 -0 ;while true do if (v376==(0 -0)) then v164=v375;if  not v375 then v167();end break;end end end);v7.Stepped:Connect(function() local v377=899 -(503 + 396) ;local v378;while true do if (v377==(181 -(92 + 89))) then if  not v164 then return;end v378=v33.Character;v377=1;end if (v377==(1 -0)) then if v378 then v166(v378);end break;end end end);v33.CharacterAdded:Connect(function() v165={};end);v3.AddButton("Fly gui",function() loadstring(game:HttpGet("https://pastebin.com/raw/3nUwQMhR"))();end);
+local Build = loadstring(game:HttpGet("https://raw.githubusercontent.com/SpooferedGuy/UI-Library-Spoof/main/Ui-Library.lua"))()
+local UI = Build({
+    Title = "Spoof Hub, by SpooferedGuy",
+    ScriptName = "SpoofHub - TheFloorIsLava",
+})
+
+local FarmTab = UI.CreateTab("Farm🌋")
+local PlayerTab = UI.CreateTab("Player👤")
+local TrollTab = UI.CreateTab("Troll🗿")
+local TeleportTab = UI.CreateTab("Teleports🤷‍♀️")
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local Workspace = game:GetService("Workspace")
+
+--==================================================
+-- AUTO COIN
+--==================================================
+
+local coinsAtivas = false
+local coins = {}
+
+local function configurarCoin(part)
+    if part:IsA("BasePart") and part.Name:lower():find("coin") then
+        if not coins[part] then
+            coins[part] = {
+                Size = part.Size,
+                Transparency = part.Transparency,
+                CanCollide = part.CanCollide
+            }
+
+            part.CanCollide = false
+            part.Transparency = 1
+        end
+    end
+end
+
+FarmTab.AddToggle("AutoCoin", false, function(Value)
+        coinsAtivas = Value
+
+        if Value then
+            for _, part in ipairs(Workspace:GetDescendants()) do
+                configurarCoin(part)
+            end
+        else
+            for part, dados in pairs(coins) do
+                if part and part.Parent then
+                    part.Size = dados.Size
+                    part.Transparency = dados.Transparency
+                    part.CanCollide = dados.CanCollide
+                end
+            end
+
+            coins = {}
+        end
+    end)
+
+Workspace.DescendantAdded:Connect(function(part)
+    if coinsAtivas then
+        task.wait()
+        configurarCoin(part)
+    end
+end)
+
+RunService.RenderStepped:Connect(function()
+    if not coinsAtivas then
+        return
+    end
+
+    for part in pairs(coins) do
+        if part and part.Parent then
+            part.Size = part.Size + Vector3.new(50, 50, 50)
+        else
+            coins[part] = nil
+        end
+    end
+end)
+
+--==================================================
+-- ANTI-TELEPORT (integração com os toggles)
+--==================================================
+local RunService = game:GetService("RunService")
+
+-- Posição bloqueada
+local BLOCKED_POSITION = Vector3.new(2, 67, -241)
+local BLOCK_RADIUS = 5
+
+-- Controla se o anti-TP está ativo
+local antiTpAtivo = false
+local antiTpConnection = nil
+local ultimaPosicaoSegura = nil
+
+local function iniciarAntiTp()
+    if antiTpAtivo then
+        return
+    end
+
+    antiTpAtivo = true
+    ultimaPosicaoSegura = nil
+
+    antiTpConnection = RunService.Heartbeat:Connect(function()
+        if not antiTpAtivo then
+            return
+        end
+
+        local character = player.Character
+        if not character then
+            return
+        end
+
+        local root = character:FindFirstChild("HumanoidRootPart")
+        if not root then
+            return
+        end
+
+        local currentPos = root.Position
+        local distancia = (currentPos - BLOCKED_POSITION).Magnitude
+
+        if distancia <= BLOCK_RADIUS then
+            -- Reverte para a última posição segura (ou empurra pra cima)
+            if ultimaPosicaoSegura then
+                root.CFrame = CFrame.new(ultimaPosicaoSegura)
+            else
+                root.CFrame = CFrame.new(
+                    BLOCKED_POSITION.X,
+                    BLOCKED_POSITION.Y + 50,
+                    BLOCKED_POSITION.Z
+                )
+            end
+        else
+            ultimaPosicaoSegura = currentPos
+        end
+    end)
+end
+
+local function pararAntiTp()
+    if not antiTpAtivo then
+        return
+    end
+
+    antiTpAtivo = false
+
+    if antiTpConnection then
+        antiTpConnection:Disconnect()
+        antiTpConnection = nil
+    end
+
+    ultimaPosicaoSegura = nil
+end
+
+--==================================================
+-- AUTO PARKOUR
+--==================================================
+
+local heads = {}
+local finishes = {}
+local loopAtivo = false
+local finishLoopAtivo = false
+local toolAtual = nil
+local loopId = 0
+
+local function encontrarHeads()
+    for _, obj in ipairs(Workspace:GetDescendants()) do
+        if obj:IsA("BasePart") and obj.Name == "Head" then
+            local pertenceAoPlayer = false
+
+            for _, plr in ipairs(Players:GetPlayers()) do
+                if plr.Character and obj:IsDescendantOf(plr.Character) then
+                    pertenceAoPlayer = true
+                    break
+                end
+            end
+
+            if not pertenceAoPlayer and not heads[obj] then
+                heads[obj] = {
+                    Size = obj.Size,
+                    CanCollide = obj.CanCollide,
+                    Transparency = obj.Transparency
+                }
+            end
+        end
+    end
+end
+
+local function encontrarFinishes()
+    for _, obj in ipairs(Workspace:GetDescendants()) do
+        if obj:IsA("BasePart") and obj.Name == "Finish" and not finishes[obj] then
+            finishes[obj] = {
+                Size = obj.Size,
+                CanCollide = obj.CanCollide,
+                Transparency = obj.Transparency
+            }
+        end
+    end
+end
+
+local function encontrarPush()
+    for _, obj in ipairs(game:GetDescendants()) do
+        if obj:IsA("Tool") and obj.Name == "Push" then
+            return obj
+        end
+    end
+
+    return nil
+end
+
+local function darPush()
+    local backpack = player:WaitForChild("Backpack")
+    local character = player.Character
+
+    if toolAtual and toolAtual.Parent then
+        return toolAtual
+    end
+
+    if character then
+        local push = character:FindFirstChild("Push")
+
+        if push and push:IsA("Tool") then
+            toolAtual = push
+            return push
+        end
+    end
+
+    local pushNoBackpack = backpack:FindFirstChild("Push")
+
+    if pushNoBackpack and pushNoBackpack:IsA("Tool") then
+        toolAtual = pushNoBackpack
+        return pushNoBackpack
+    end
+
+    local pushOriginal = encontrarPush()
+
+    if pushOriginal then
+        local copia = pushOriginal:Clone()
+        copia.Parent = backpack
+        toolAtual = copia
+        return copia
+    end
+
+    return nil
+end
+
+local function loopDeveRodar()
+    return loopAtivo or finishLoopAtivo
+end
+
+-- Atualiza o estado do anti-TP baseado nos dois toggles
+local function atualizarAntiTp()
+    if loopDeveRodar() then
+        iniciarAntiTp()
+    else
+        pararAntiTp()
+    end
+end
+
+local function equiparLoop()
+    loopId += 1
+    local meuLoop = loopId
+
+    task.spawn(function()
+        while loopDeveRodar() and meuLoop == loopId do
+            local character = player.Character
+            local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+
+            if humanoid and humanoid.Health > 0 then
+                local push = darPush()
+
+                if push and push.Parent then
+                    toolAtual = push
+
+                    humanoid:EquipTool(push)
+
+                    task.wait(0.1)
+
+                    if not loopDeveRodar() or meuLoop ~= loopId then
+                        break
+                    end
+
+                    humanoid:UnequipTools()
+
+                    task.wait(0.1)
+                else
+                    task.wait(0.5)
+                end
+            else
+                task.wait(0.5)
+            end
+        end
+    end)
+end
+
+player.CharacterAdded:Connect(function(character)
+    if not loopDeveRodar() then
+        return
+    end
+
+    toolAtual = nil
+
+    character:WaitForChild("Humanoid", 10)
+    task.wait(1)
+
+    if loopDeveRodar() then
+        darPush()
+    end
+end)
+
+encontrarHeads()
+encontrarFinishes()
+
+FarmTab.AddToggle("Infinite Points Farm", false, function(Value)
+        loopAtivo = Value
+        encontrarHeads()
+
+        if Value then
+
+            for obj, original in pairs(heads) do
+                if obj and obj.Parent then
+                    obj.Size = original.Size + Vector3.new(9999, 9999, 9999)
+                    obj.CanCollide = false
+                    obj.Transparency = 1
+                end
+            end
+
+            toolAtual = nil
+            darPush()
+
+            if not finishLoopAtivo then
+                equiparLoop()
+            end
+
+        else
+
+            for obj, original in pairs(heads) do
+                if obj and obj.Parent then
+                    obj.Size = original.Size
+                    obj.CanCollide = original.CanCollide
+                    obj.Transparency = original.Transparency
+                end
+            end
+
+            if not finishLoopAtivo then
+                loopId += 1
+                toolAtual = nil
+            end
+        end
+
+        -- Atualiza anti-TP
+        atualizarAntiTp()
+    end)
+
+-- ================= Services =================
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- ================= Name ESP =================
+local nameESPEnabled = false
+local nameESPObjects = {}
+
+local function RemoveNameESP(Player)
+    local Billboard = nameESPObjects[Player]
+
+    if Billboard then
+        Billboard:Destroy()
+        nameESPObjects[Player] = nil
+    end
+end
+
+local function AddNameESP(Player)
+    -- Nunca adicionar ESP no LocalPlayer
+    if Player == LocalPlayer then
+        return
+    end
+
+    if not nameESPEnabled then
+        return
+    end
+
+    local Character = Player.Character
+    if not Character then
+        return
+    end
+
+    local Head = Character:FindFirstChild("Head")
+    if not Head then
+        return
+    end
+
+    -- Remove qualquer ESP antigo
+    RemoveNameESP(Player)
+
+    local Billboard = Instance.new("BillboardGui")
+    Billboard.Name = "NameESP"
+    Billboard.Adornee = Head
+    Billboard.Size = UDim2.new(0, 120, 0, 25)
+    Billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+    Billboard.AlwaysOnTop = true
+    Billboard.Parent = Head
+
+    local Text = Instance.new("TextLabel")
+    Text.Size = UDim2.fromScale(1, 1)
+    Text.BackgroundTransparency = 1
+    Text.Text = Player.Name
+    Text.TextColor3 = Color3.fromRGB(255, 0, 0)
+    Text.TextStrokeTransparency = 0
+    Text.TextScaled = true
+    Text.Font = Enum.Font.SourceSansBold
+    Text.Parent = Billboard
+
+    nameESPObjects[Player] = Billboard
+end
+
+-- ================= Setup Player =================
+local function SetupPlayer(Player)
+    -- Não configurar o próprio jogador
+    if Player == LocalPlayer then
+        return
+    end
+
+    -- Quando o jogador nascer ou renascer
+    Player.CharacterAdded:Connect(function(Character)
+        if not nameESPEnabled then
+            return
+        end
+
+        local Head = Character:WaitForChild("Head", 5)
+
+        if Head and nameESPEnabled then
+            task.wait(0.1)
+            AddNameESP(Player)
+        end
+    end)
+
+    -- Se o jogador já estiver vivo
+    if Player.Character then
+        task.defer(function()
+            AddNameESP(Player)
+        end)
+    end
+end
+
+-- ================= Update ESP =================
+local function UpdateNameESP()
+    for _, Player in ipairs(Players:GetPlayers()) do
+        if Player ~= LocalPlayer then
+            if nameESPEnabled then
+                AddNameESP(Player)
+            else
+                RemoveNameESP(Player)
+            end
+        end
+    end
+end
+
+-- ================= Toggle =================
+TrollTab.AddToggle("Name ESP", false, function(Value)
+        nameESPEnabled = Value
+
+        if Value then
+            UpdateNameESP()
+        else
+            for Player in pairs(nameESPObjects) do
+                RemoveNameESP(Player)
+            end
+        end
+    end)
+
+-- ================= Existing Players =================
+for _, Player in ipairs(Players:GetPlayers()) do
+    if Player ~= LocalPlayer then
+        SetupPlayer(Player)
+    end
+end
+
+-- ================= New Players =================
+Players.PlayerAdded:Connect(function(Player)
+    if Player ~= LocalPlayer then
+        SetupPlayer(Player)
+    end
+end)
+
+-- ================= Player Leaving =================
+Players.PlayerRemoving:Connect(function(Player)
+    RemoveNameESP(Player)
+end)
+
+--==================================================
+-- FINISH EXPANDER
+--==================================================
+
+FarmTab.AddToggle("Infinite Points Farm(VIP)", false, function(Value)
+        finishLoopAtivo = Value
+        encontrarFinishes()
+
+        if Value then
+
+            for obj, original in pairs(finishes) do
+                if obj and obj.Parent then
+                    obj.Size = original.Size + Vector3.new(9999, 9999, 9999)
+                    obj.CanCollide = false
+                    obj.Transparency = 1
+                end
+            end
+
+            toolAtual = nil
+            darPush()
+
+            if not loopAtivo then
+                equiparLoop()
+            end
+
+        else
+
+            for obj, original in pairs(finishes) do
+                if obj and obj.Parent then
+                    obj.Size = original.Size
+                    obj.CanCollide = original.CanCollide
+                    obj.Transparency = original.Transparency
+                end
+            end
+
+            if not loopAtivo then
+                loopId += 1
+                toolAtual = nil
+            end
+        end
+
+        -- Atualiza anti-TP
+        atualizarAntiTp()
+    end)
+
+local NoSwim = false
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local function ApplyNoSwim(character)
+    local humanoid = character:WaitForChild("Humanoid")
+
+    humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming, not NoSwim)
+
+    if NoSwim then
+        humanoid:ChangeState(Enum.HumanoidStateType.Running)
+    end
+end
+
+PlayerTab.AddToggle("GodMode", false, function(Value)
+        NoSwim = Value
+
+        if player.Character then
+            ApplyNoSwim(player.Character)
+        end
+    end)
+
+player.CharacterAdded:Connect(function(character)
+    ApplyNoSwim(character)
+end)
+
+local DoubleJump = false
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+local canDoubleJump = false
+local hasDoubleJumped = false
+
+local function SetupCharacter(character)
+    local humanoid = character:WaitForChild("Humanoid")
+
+    canDoubleJump = false
+    hasDoubleJumped = false
+
+    humanoid.StateChanged:Connect(function(_, newState)
+        if newState == Enum.HumanoidStateType.Jumping then
+            task.wait(0.1)
+            canDoubleJump = true
+        elseif newState == Enum.HumanoidStateType.Landed then
+            canDoubleJump = false
+            hasDoubleJumped = false
+        end
+    end)
+end
+
+if player.Character then
+    SetupCharacter(player.Character)
+end
+
+player.CharacterAdded:Connect(SetupCharacter)
+
+UIS.JumpRequest:Connect(function()
+    if not DoubleJump then return end
+
+    local character = player.Character
+    if not character then return end
+
+    local humanoid = character:FindFirstChild("Humanoid")
+    if not humanoid then return end
+
+    if canDoubleJump and not hasDoubleJumped then
+        hasDoubleJumped = true
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end)
+
+PlayerTab.AddToggle("DoubleJumpGP", false, function(Value)
+        DoubleJump = Value
+    end)
+
+local GravityCoil = false
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local originalGravity = workspace.Gravity
+
+local SETTINGS = {
+    JumpPower = 50,
+    GravityModifier = 0.25,
+    FallSpeed = 40,
+}
+
+local function GetCharacter()
+    return player.Character
+end
+
+local function ApplyGravityCoil()
+    if GravityCoil then
+        workspace.Gravity = originalGravity * SETTINGS.GravityModifier
+        humanoid.UseJumpPower = true
+        humanoid.JumpPower = SETTINGS.JumpPower
+    else
+        workspace.Gravity = originalGravity
+        humanoid.UseJumpPower = true
+        humanoid.JumpPower = 50
+    end
+end
+
+-- Loop para controle de velocidade de queda
+task.spawn(function()
+    while true do
+        task.wait(0.05)
+        
+        local char = GetCharacter()
+        if GravityCoil and char then
+            local root = char:FindFirstChild("HumanoidRootPart")
+            if root and root.Parent then
+                local velocity = root.AssemblyLinearVelocity
+                
+                if velocity.Y < -1 then
+                    root.AssemblyLinearVelocity = Vector3.new(
+                        velocity.X,
+                        math.max(velocity.Y, -SETTINGS.FallSpeed),
+                        velocity.Z
+                    )
+                end
+            end
+        end
+    end
+end)
+
+-- Quando o personagem spawnar
+player.CharacterAdded:Connect(function(char)
+    character = char
+    humanoid = char:WaitForChild("Humanoid")
+    rootPart = char:WaitForChild("HumanoidRootPart")
+    
+    if GravityCoil then
+        ApplyGravityCoil()
+    end
+end)
+
+-- Quando o personagem morrer
+player.CharacterRemoving:Connect(function()
+    workspace.Gravity = originalGravity
+end)
+
+-- Toggle do menu
+PlayerTab.AddToggle("Fake Gravity Coil", false, function(Value)
+        GravityCoil = Value
+        ApplyGravityCoil()
+    end)
+
+local SpeedCoil = false
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+local speedLoop
+
+local function ApplySpeedCoil()
+    local char = player.Character
+    if not char then return end
+    
+    local hum = char:FindFirstChild("Humanoid")
+    if not hum then return end
+    
+    if SpeedCoil then
+        hum.WalkSpeed = 24
+    else
+        hum.WalkSpeed = 16
+    end
+end
+
+-- Loop para manter a velocidade
+local function StartSpeedLoop()
+    if speedLoop then
+        speedLoop:Disconnect()
+        speedLoop = nil
+    end
+    
+    speedLoop = RunService.RenderStepped:Connect(function()
+        if SpeedCoil then
+            local char = player.Character
+            if char then
+                local hum = char:FindFirstChild("Humanoid")
+                if hum and hum.WalkSpeed ~= 24 then
+                    hum.WalkSpeed = 24
+                end
+            end
+        end
+    end)
+end
+
+-- Quando o personagem spawnar
+player.CharacterAdded:Connect(function(char)
+    character = char
+    humanoid = char:WaitForChild("Humanoid")
+    
+    task.wait(0.1)
+    if SpeedCoil then
+        ApplySpeedCoil()
+        StartSpeedLoop()
+    end
+end)
+
+-- Toggle do menu
+PlayerTab.AddToggle("Fake Speed Coil", false, function(Value)
+        SpeedCoil = Value
+        
+        if SpeedCoil then
+            ApplySpeedCoil()
+            StartSpeedLoop()
+        else
+            ApplySpeedCoil()
+            if speedLoop then
+                speedLoop:Disconnect()
+                speedLoop = nil
+            end
+        end
+    end)
+
+--==================================================
+-- ANTI-TELEPORT
+--==================================================
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+-- Posição que será bloqueada
+local BLOCKED_POSITION = Vector3.new(0, 60, 4)
+local BLOCK_RADIUS = 130
+
+-- Posição segura
+local SAFE_POSITION = Vector3.new(-1, 62, -263)
+
+local antiTpAtivo = false
+local ultimaPosicaoSegura = nil
+
+--==================================================
+-- LOOP DE VERIFICAÇÃO
+--==================================================
+RunService.Heartbeat:Connect(function()
+    if not antiTpAtivo then
+        return
+    end
+
+    local character = player.Character
+    if not character then return end
+
+    local root = character:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    local currentPos = root.Position
+    local distancia = (currentPos - BLOCKED_POSITION).Magnitude
+
+    if distancia <= BLOCK_RADIUS then
+        -- Tentou entrar na área bloqueada → volta pra última posição segura
+        if ultimaPosicaoSegura then
+            root.CFrame = CFrame.new(ultimaPosicaoSegura)
+        end
+    else
+        -- Fora da área → guarda como posição segura
+        ultimaPosicaoSegura = currentPos
+    end
+end)
+
+--==================================================
+-- TOGGLE NO RAYFIELD
+--==================================================
+FarmTab.AddToggle("AutoWin", false, function(Value)
+        antiTpAtivo = Value
+
+        if Value then
+            -- Ao ligar: verifica se já está dentro da área bloqueada
+            local character = player.Character
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+
+            if root then
+                local distancia = (root.Position - BLOCKED_POSITION).Magnitude
+
+                if distancia <= BLOCK_RADIUS then
+                    -- Já está dentro → teleporta pra zona segura
+                    root.CFrame = CFrame.new(SAFE_POSITION)
+                    ultimaPosicaoSegura = SAFE_POSITION
+                else
+                    -- Já está fora → só registra a posição atual
+                    ultimaPosicaoSegura = root.Position
+                end
+            end
+        else
+            ultimaPosicaoSegura = nil
+        end
+    end)
+
+FarmTab.AddButton("Sit", function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            
+            if humanoid then
+                -- Apenas senta, sem freeze
+                humanoid:ChangeState(Enum.HumanoidStateType.Seated)
+                humanoid.Sit = true
+                
+                task.wait(0.1)
+                
+                -- Reforça o sit
+                humanoid:ChangeState(Enum.HumanoidStateType.Seated)
+                humanoid.Sit = true
+            end
+        end
+    end)
+
+local water = workspace:WaitForChild("LavaPart")
+
+-- Salva o tamanho original
+local originalSize = water.Size
+local originalMaterial = water.Material
+local originalTransparency = water.Transparency
+local originalCanCollide = water.CanCollide
+
+PlayerTab.AddToggle("LavaWalk", false, function(Value)
+        if Value then
+            water.Material = Enum.Material.SmoothPlastic
+            water.Transparency = 1
+            water.CanCollide = true
+
+            -- Sempre usa o tamanho original
+            water.Size = originalSize + Vector3.new(6, 2, 6)
+
+        else
+            -- Restaura o tamanho original
+            water.Size = originalSize
+            water.Material = originalMaterial
+            water.Transparency = originalTransparency
+            water.CanCollide = originalCanCollide
+        end
+    end)
+
+local AntiKB = false
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local connection
+
+PlayerTab.AddToggle("AntiKB", false, function(Value)
+        AntiKB = Value
+
+        if connection then
+            connection:Disconnect()
+            connection = nil
+        end
+
+        if AntiKB then
+            connection = RunService.Heartbeat:Connect(function()
+                local character = Players.LocalPlayer.Character
+                if not character then return end
+
+                local root = character:FindFirstChild("HumanoidRootPart")
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                if not root or not humanoid then return end
+
+                -- Impede sentar
+                if humanoid.Sit then
+                    humanoid.Sit = false
+                    humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+                end
+
+                -- Remove objetos que costumam causar fling
+                for _, obj in ipairs(root:GetChildren()) do
+                    if obj:IsA("BodyVelocity")
+                    or obj:IsA("BodyForce")
+                    or obj:IsA("BodyPosition")
+                    or obj:IsA("LinearVelocity")
+                    or obj:IsA("VectorForce")
+                    or obj:IsA("Torque")
+                    or obj:IsA("AngularVelocity") then
+                        obj:Destroy()
+                    end
+                end
+
+                -- Limita cada eixo separadamente
+                local v = root.AssemblyLinearVelocity
+
+                local maxXZ = 24
+                local maxY = 80
+
+                local x = math.clamp(v.X, -maxXZ, maxXZ)
+                local y = math.clamp(v.Y, -maxY, maxY)
+                local z = math.clamp(v.Z, -maxXZ, maxXZ)
+
+                root.AssemblyLinearVelocity = Vector3.new(x, y, z)
+
+                -- Limita rotação exagerada
+                local a = root.AssemblyAngularVelocity
+                if a.Magnitude > 15 then
+                    root.AssemblyAngularVelocity = Vector3.zero
+                end
+            end)
+        end
+    end)
+
+-- Script Local (Client-Sided)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local localPlayer = Players.LocalPlayer
+
+local isEnabled = false
+local characterConnections = {}
+local trackedCharacters = {}
+
+local function applyCollisionState(character, enabled)
+    if not character then return end
+    
+    for _, part in ipairs(character:GetChildren()) do
+        if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+            part.CanCollide = not enabled
+        end
+    end
+end
+
+local function setupCharacter(character)
+    if not character or character == localPlayer.Character then return end
+    
+    if trackedCharacters[character] then
+        for _, conn in ipairs(trackedCharacters[character]) do
+            conn:Disconnect()
+        end
+        trackedCharacters[character] = nil
+    end
+    
+    applyCollisionState(character, isEnabled)
+    
+    local connections = {}
+    
+    local childAddedConn = character.ChildAdded:Connect(function(part)
+        if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+            part.CanCollide = not isEnabled
+        end
+    end)
+    table.insert(connections, childAddedConn)
+    
+    local steppedConn = RunService.Stepped:Connect(function()
+        if character and character:IsDescendantOf(workspace) then
+            for _, part in ipairs(character:GetChildren()) do
+                if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+                    local shouldCollide = not isEnabled
+                    if part.CanCollide ~= shouldCollide then
+                        part.CanCollide = shouldCollide
+                    end
+                end
+            end
+        end
+    end)
+    table.insert(connections, steppedConn)
+    
+    local destroyingConn = character.Destroying:Connect(function()
+        if trackedCharacters[character] then
+            for _, conn in ipairs(trackedCharacters[character]) do
+                conn:Disconnect()
+            end
+            trackedCharacters[character] = nil
+        end
+    end)
+    table.insert(connections, destroyingConn)
+    
+    trackedCharacters[character] = connections
+end
+
+local function trackPlayer(player)
+    if player == localPlayer then return end
+    
+    if player.Character then
+        setupCharacter(player.Character)
+    end
+    
+    local charAddedConn = player.CharacterAdded:Connect(function(character)
+        setupCharacter(character)
+    end)
+    
+    characterConnections[player] = charAddedConn
+end
+
+local function untrackPlayer(player)
+    if characterConnections[player] then
+        characterConnections[player]:Disconnect()
+        characterConnections[player] = nil
+    end
+    
+    if player.Character and trackedCharacters[player.Character] then
+        for _, conn in ipairs(trackedCharacters[player.Character]) do
+            conn:Disconnect()
+        end
+        trackedCharacters[player.Character] = nil
+    end
+end
+
+for _, player in ipairs(Players:GetPlayers()) do
+    trackPlayer(player)
+end
+
+Players.PlayerAdded:Connect(trackPlayer)
+Players.PlayerRemoving:Connect(untrackPlayer)
+
+
+localPlayer.Chatted:Connect(function(msg)
+    msg = msg:lower()
+    if msg == ";af on" then
+        isEnabled = true
+        for character, _ in pairs(trackedCharacters) do
+            if character and character:IsDescendantOf(workspace) then applyCollisionState(character, true) end
+        end
+    elseif msg == ";af off" then
+        isEnabled = false
+        for character, _ in pairs(trackedCharacters) do
+            if character and character:IsDescendantOf(workspace) then applyCollisionState(character, false) end
+        end
+    end
+end)
+
+local function cleanup()
+    for player, conn in pairs(characterConnections) do
+        conn:Disconnect()
+    end
+    characterConnections = {}
+    
+    for character, conns in pairs(trackedCharacters) do
+        for _, conn in ipairs(conns) do
+            conn:Disconnect()
+        end
+    end
+    trackedCharacters = {}
+end
+
+localPlayer.CharacterAdded:Connect(function()
+    cleanup()
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= localPlayer then
+            trackPlayer(player)
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
+
+local antiAFKConnection
+local statusGui
+
+FarmTab.AddButton("Anti AFK", function()
+        -- Evita ativar duas vezes
+        if antiAFKConnection then
+            return
+        end
+
+        -- Texto na tela
+        statusGui = Instance.new("ScreenGui")
+        statusGui.Name = "AntiAFKStatus"
+        statusGui.ResetOnSpawn = false
+        statusGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+
+        local label = Instance.new("TextLabel")
+        label.Name = "Status"
+        label.Size = UDim2.new(0, 220, 0, 40)
+        label.Position = UDim2.new(0.5, -110, 0, 20)
+        label.BackgroundTransparency = 0.3
+        label.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        label.TextColor3 = Color3.fromRGB(0, 255, 0)
+        label.TextScaled = true
+        label.Font = Enum.Font.SourceSansBold
+        label.Text = "🟢 Anti AFK by Enygma"
+        label.Parent = statusGui
+
+        antiAFKConnection = Players.LocalPlayer.Idled:Connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
+    end)
+
+-- ============ CONFIGURAÇÃO DO MAGNET ============
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
+
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local Folder = Instance.new("Folder", Workspace)
+local Part = Instance.new("Part", Folder)
+local Attachment1 = Instance.new("Attachment", Part)
+Part.Anchored = true
+Part.CanCollide = false
+Part.Transparency = 1
+
+-- ============ NETWORK (interno, sem toggle próprio) ============
+if not getgenv().Network then
+    getgenv().Network = {
+        BaseParts = {},
+        Velocity = Vector3.new(140.46262424, 140.46262424, 140.46262424)
+    }
+
+    Network.RetainPart = function(Part)
+        if typeof(Part) == "Instance" and Part:IsA("BasePart") and Part:IsDescendantOf(Workspace) then
+            table.insert(Network.BaseParts, Part)
+            Part.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0, 0, 0)
+            Part.CanCollide = false
+        end
+    end
+end
+
+local networkConn = nil
+
+local function StartNetwork()
+    if networkConn then return end -- já tá ligado
+    LocalPlayer.ReplicationFocus = Workspace
+    networkConn = RunService.Heartbeat:Connect(function()
+        sethiddenproperty(LocalPlayer, "SimulationRadius", math.huge)
+        for _, Part in pairs(Network.BaseParts) do
+            if Part:IsDescendantOf(Workspace) then
+                Part.Velocity = Network.Velocity
+            end
+        end
+    end)
+end
+
+local function StopNetwork()
+    if networkConn then
+        networkConn:Disconnect()
+        networkConn = nil
+    end
+    pcall(function()
+        sethiddenproperty(LocalPlayer, "SimulationRadius", 100)
+    end)
+end
+
+-- ============ CONFIGURAÇÕES AJUSTÁVEIS (controladas pelos sliders) ============
+local OrbitConfig = {
+    Speed = 2,       -- velocidade de rotação (rad/s)
+    Distance = 15,   -- distância do player
+}
+
+-- ============ FUNÇÃO MAGNET EM LOOP CONTÍNUO ============
+local magnetActive = false
+local Forces = {}
+local frozenParts = {}
+local magnetThread = nil
+local scanThread = nil
+
+local function isValidPart(part, targetCharacter)
+    if not part or not part.Parent then return false end
+    if not part:IsA("BasePart") then return false end
+    if part.Anchored then return false end
+    if part:IsDescendantOf(targetCharacter) then return false end
+    if part == Part then return false end
+    if part:IsDescendantOf(Folder) then return false end
+    return true
+end
+
+local function handlePart(part, targetCharacter)
+    if not isValidPart(part, targetCharacter) then return end
+    if table.find(frozenParts, part) then return end
+
+    for _, c in pairs(part:GetChildren()) do
+        if c:IsA("BodyPosition") or c:IsA("BodyGyro") then
+            c:Destroy()
+        end
+    end
+
+    local ForceInstance = Instance.new("BodyPosition")
+    ForceInstance.Parent = part
+    ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    ForceInstance.Position = targetCharacter.Head.Position
+
+    table.insert(Forces, ForceInstance)
+    table.insert(frozenParts, part)
+    part.CanCollide = false
+end
+
+local function StopMagnet()
+    magnetActive = false
+    if magnetThread then
+        task.cancel(magnetThread)
+        magnetThread = nil
+    end
+    if scanThread then
+        task.cancel(scanThread)
+        scanThread = nil
+    end
+    for _, force in pairs(Forces) do
+        if force and force.Parent then
+            force:Destroy()
+        end
+    end
+    Forces = {}
+    for _, part in pairs(frozenParts) do
+        if part and part.Parent then
+            part.CanCollide = true
+        end
+    end
+    frozenParts = {}
+
+    -- 👇 só desliga o network se o Orbit também estiver off
+    if not orbitActive then
+        StopNetwork()
+    end
+end
+
+local function StartMagnet()
+    if magnetActive then return end
+    magnetActive = true
+
+    StartNetwork() -- 👈 liga o network junto
+
+    local targetCharacter = LocalPlayer.Character
+    if not targetCharacter or not targetCharacter:FindFirstChild("Head") then
+        magnetActive = false
+        if not orbitActive then StopNetwork() end
+        return
+    end
+
+    Forces = {}
+    frozenParts = {}
+
+    for _, part in pairs(workspace:GetDescendants()) do
+        handlePart(part, targetCharacter)
+    end
+
+    magnetThread = task.spawn(function()
+        while magnetActive do
+            local char = LocalPlayer.Character
+            if not char or not char:FindFirstChild("Head") then break end
+
+            for i = #Forces, 1, -1 do
+                local force = Forces[i]
+                if force and force.Parent then
+                    force.Position = char.Head.Position
+                else
+                    table.remove(Forces, i)
+                end
+            end
+            task.wait(0.1)
+        end
+    end)
+
+    scanThread = task.spawn(function()
+        while magnetActive do
+            local char = LocalPlayer.Character
+            if not char or not char:FindFirstChild("Head") then break end
+
+            for _, part in pairs(workspace:GetDescendants()) do
+                if not magnetActive then break end
+                handlePart(part, char)
+            end
+
+            for i = #frozenParts, 1, -1 do
+                local p = frozenParts[i]
+                if not p or not p.Parent then
+                    table.remove(frozenParts, i)
+                end
+            end
+
+            task.wait(0.5)
+        end
+    end)
+end
+
+-- ============ MAGNET ORBITAL (parts girando em volta) ============
+local orbitActive = false
+local OrbitForces = {}       -- {force = BodyPosition, part = BasePart, angleOffset = number, heightOffset = number}
+local orbitParts = {}        -- controle de parts capturadas
+local orbitMainThread = nil
+local orbitScanThread = nil
+local orbitAngle = 0
+
+local function isValidOrbitPart(part, targetCharacter)
+    if not part or not part.Parent then return false end
+    if not part:IsA("BasePart") then return false end
+    if part.Anchored then return false end
+    if part:IsDescendantOf(targetCharacter) then return false end
+    if part == Part then return false end
+    if part:IsDescendantOf(Folder) then return false end
+    return true
+end
+
+local function handleOrbitPart(part, targetCharacter)
+    if not isValidOrbitPart(part, targetCharacter) then return end
+    if table.find(orbitParts, part) then return end
+
+    for _, c in pairs(part:GetChildren()) do
+        if c:IsA("BodyPosition") or c:IsA("BodyGyro") then
+            c:Destroy()
+        end
+    end
+
+    part.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0, 0, 0)
+    part.CanCollide = false
+
+    local ForceInstance = Instance.new("BodyPosition")
+    ForceInstance.Parent = part
+    ForceInstance.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    ForceInstance.Position = targetCharacter.Head.Position
+
+    table.insert(OrbitForces, {
+        force = ForceInstance,
+        part = part,
+        angleOffset = math.random() * math.pi * 2,
+        heightOffset = (math.random() - 0.5) * 5,
+    })
+    table.insert(orbitParts, part)
+end
+
+local function StopOrbit()
+    orbitActive = false
+    if orbitMainThread then
+        task.cancel(orbitMainThread)
+        orbitMainThread = nil
+    end
+    if orbitScanThread then
+        task.cancel(orbitScanThread)
+        orbitScanThread = nil
+    end
+    for _, data in pairs(OrbitForces) do
+        if data.force and data.force.Parent then
+            data.force:Destroy()
+        end
+        if data.part and data.part.Parent then
+            data.part.CanCollide = true
+        end
+    end
+    OrbitForces = {}
+    orbitParts = {}
+    orbitAngle = 0
+
+    -- 👇 só desliga o network se o Magnet também estiver off
+    if not magnetActive then
+        StopNetwork()
+    end
+end
+
+local function StartOrbit()
+    if orbitActive then return end
+    orbitActive = true
+
+    StartNetwork() -- 👈 liga o network junto
+
+    local targetCharacter = LocalPlayer.Character
+    if not targetCharacter or not targetCharacter:FindFirstChild("Head") then
+        orbitActive = false
+        if not magnetActive then StopNetwork() end
+        return
+    end
+
+    OrbitForces = {}
+    orbitParts = {}
+
+    for _, part in pairs(workspace:GetDescendants()) do
+        handleOrbitPart(part, targetCharacter)
+    end
+
+    orbitMainThread = task.spawn(function()
+        local lastTime = tick()
+        while orbitActive do
+            local char = LocalPlayer.Character
+            if not char or not char:FindFirstChild("Head") then break end
+
+            local now = tick()
+            local dt = now - lastTime
+            lastTime = now
+
+            orbitAngle = orbitAngle + OrbitConfig.Speed * dt
+
+            local center = char.Head.Position
+            local radius = OrbitConfig.Distance
+
+            for _, data in pairs(OrbitForces) do
+                if data.force and data.force.Parent and data.part and data.part.Parent then
+                    local angle = orbitAngle + data.angleOffset
+                    local x = center.X + math.cos(angle) * radius
+                    local z = center.Z + math.sin(angle) * radius
+                    local y = center.Y + data.heightOffset + math.sin(angle * 2) * 2
+
+                    data.force.Position = Vector3.new(x, y, z)
+                end
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+
+    orbitScanThread = task.spawn(function()
+        while orbitActive do
+            local char = LocalPlayer.Character
+            if not char or not char:FindFirstChild("Head") then break end
+
+            for _, part in pairs(workspace:GetDescendants()) do
+                if not orbitActive then break end
+                handleOrbitPart(part, char)
+            end
+
+            for i = #OrbitForces, 1, -1 do
+                local data = OrbitForces[i]
+                if not data.part or not data.part.Parent or not data.force or not data.force.Parent then
+                    table.remove(OrbitForces, i)
+                end
+            end
+            for i = #orbitParts, 1, -1 do
+                local p = orbitParts[i]
+                if not p or not p.Parent then
+                    table.remove(orbitParts, i)
+                end
+            end
+
+            task.wait(0.5)
+        end
+    end)
+end
+
+-- Para tudo ao morrer
+LocalPlayer.CharacterAdded:Connect(function()
+    StopMagnet()
+    StopOrbit()
+end)
+
+
+-- ============ TARGET ORBIT ============
+-- Usa o mesmo input "Player Name".
+-- Distância fixa: 1 stud | Velocidade fixa: 20.
+-- O alvo é reavaliado continuamente, permitindo trocar o jogador
+-- no mesmo input enquanto o toggle continua ligado.
+-- Partes novas também são detectadas continuamente.
+
+local targetOrbitActive = false
+local targetOrbitPlayer = nil
+local targetOrbitParts = {}
+local targetOrbitThread = nil
+local targetOrbitAngle = 0
+
+local TARGET_ORBIT_DISTANCE = 1
+local TARGET_ORBIT_SPEED = 20
+local TARGET_ORBIT_SCAN_INTERVAL = 0.05
+
+local function FindTargetPlayer(name)
+    name = tostring(name or ""):lower():gsub("^%s+", ""):gsub("%s+$", "")
+    if name == "" then
+        return nil
+    end
+
+    -- Primeiro: correspondência exata por Name ou DisplayName.
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            if player.Name:lower() == name or player.DisplayName:lower() == name then
+                return player
+            end
+        end
+    end
+
+    -- Depois: correspondência parcial por Name ou DisplayName.
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            if player.Name:lower():find(name, 1, true)
+                or player.DisplayName:lower():find(name, 1, true) then
+                return player
+            end
+        end
+    end
+
+    return nil
+end
+
+local function IsValidTargetOrbitPart(part, targetCharacter)
+    if not part or not part:IsA("Part") then
+        return false
+    end
+
+    if not part.Parent or part.Anchored then
+        return false
+    end
+
+    if LocalPlayer.Character and part:IsDescendantOf(LocalPlayer.Character) then
+        return false
+    end
+
+    if targetCharacter and part:IsDescendantOf(targetCharacter) then
+        return false
+    end
+
+    if part.Name == "Handle" then
+        return false
+    end
+
+    local parent = part.Parent
+    if parent and parent:FindFirstChildOfClass("Humanoid") then
+        return false
+    end
+
+    if part:FindFirstAncestorOfClass("Model")
+        and part:FindFirstAncestorOfClass("Model"):FindFirstChildOfClass("Humanoid") then
+        return false
+    end
+
+    return true
+end
+
+local function RemoveTargetOrbitForceObjects(part)
+    if not part then
+        return
+    end
+
+    for _, obj in ipairs(part:GetChildren()) do
+        if obj.Name == "TargetOrbitAttachment"
+            or obj.Name == "TargetOrbitTorque"
+            or obj.Name == "TargetOrbitAlignPosition" then
+            pcall(function()
+                obj:Destroy()
+            end)
+        end
+    end
+end
+
+local function HandleTargetOrbitPart(part)
+    if not IsValidTargetOrbitPart(part, targetOrbitPlayer and targetOrbitPlayer.Character) then
+        return false
+    end
+
+    local attachment = part:FindFirstChild("TargetOrbitAttachment")
+    local torque = part:FindFirstChild("TargetOrbitTorque")
+    local align = part:FindFirstChild("TargetOrbitAlignPosition")
+
+    if not attachment then
+        attachment = Instance.new("Attachment")
+        attachment.Name = "TargetOrbitAttachment"
+        attachment.Parent = part
+    end
+
+    if not torque then
+        torque = Instance.new("Torque")
+        torque.Name = "TargetOrbitTorque"
+        torque.Attachment0 = attachment
+        torque.RelativeTo = Enum.ActuatorRelativeTo.World
+        torque.Torque = Vector3.new(100000, 100000, 100000)
+        torque.Parent = part
+    end
+
+    if not align then
+        align = Instance.new("AlignPosition")
+        align.Name = "TargetOrbitAlignPosition"
+        align.Mode = Enum.PositionAlignmentMode.OneAttachment
+        align.Attachment0 = attachment
+        align.MaxForce = 9999999999999999
+        align.MaxVelocity = math.huge
+        align.Responsiveness = 200
+        align.RigidityEnabled = false
+        align.Parent = part
+    end
+
+    part.CanCollide = false
+
+    targetOrbitParts[part] = true
+    return true
+end
+
+local function ScanTargetOrbitParts(targetCharacter)
+    for _, part in ipairs(Workspace:GetDescendants()) do
+        if IsValidTargetOrbitPart(part, targetCharacter) then
+            HandleTargetOrbitPart(part)
+        end
+    end
+end
+
+local function CleanupTargetOrbitPart(part)
+    if part then
+        RemoveTargetOrbitForceObjects(part)
+        pcall(function()
+            part.CanCollide = true
+        end)
+    end
+    targetOrbitParts[part] = nil
+end
+
+local function StopTargetOrbit()
+    targetOrbitActive = false
+
+    if targetOrbitThread then
+        task.cancel(targetOrbitThread)
+        targetOrbitThread = nil
+    end
+
+    for part in pairs(targetOrbitParts) do
+        CleanupTargetOrbitPart(part)
+    end
+
+    targetOrbitParts = {}
+    targetOrbitPlayer = nil
+    targetOrbitAngle = 0
+end
+
+local function StartTargetOrbit()
+    -- Reinicia a referência para garantir que o novo valor do input seja usado.
+    if targetOrbitActive then
+        StopTargetOrbit()
+    end
+
+    targetOrbitActive = true
+    targetOrbitAngle = 0
+
+    targetOrbitThread = task.spawn(function()
+        local scanAccumulator = 0
+
+        while targetOrbitActive do
+            -- Reavalia o input a cada ciclo. Assim, trocar o nome
+            -- muda o alvo sem precisar desligar o toggle.
+            local currentName = tostring(getgenv().TargetName or "")
+            local newTarget = FindTargetPlayer(currentName)
+
+            if newTarget ~= targetOrbitPlayer then
+                targetOrbitPlayer = newTarget
+
+                -- Remove forças de partes que não devem mais seguir o novo alvo.
+                for part in pairs(targetOrbitParts) do
+                    if not IsValidTargetOrbitPart(
+                        part,
+                        targetOrbitPlayer and targetOrbitPlayer.Character
+                    ) then
+                        CleanupTargetOrbitPart(part)
+                    end
+                end
+            end
+
+            local targetCharacter = targetOrbitPlayer and targetOrbitPlayer.Character
+            local targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
+
+            if targetRoot then
+                scanAccumulator = scanAccumulator + TARGET_ORBIT_SCAN_INTERVAL
+
+                -- Escaneia repetidamente para pegar Parts que surgiram depois
+                -- que o Orbit foi ligado.
+                if scanAccumulator >= TARGET_ORBIT_SCAN_INTERVAL then
+                    scanAccumulator = 0
+                    ScanTargetOrbitParts(targetCharacter)
+                end
+
+                targetOrbitAngle = targetOrbitAngle + math.rad(TARGET_ORBIT_SPEED)
+
+                local center = targetRoot.Position
+                local validCount = 0
+
+                for part in pairs(targetOrbitParts) do
+                    if not IsValidTargetOrbitPart(part, targetCharacter)
+                        or not part:IsDescendantOf(Workspace) then
+                        CleanupTargetOrbitPart(part)
+                    else
+                        validCount = validCount + 1
+
+                        local index = validCount
+                        local total = math.max(1, 0)
+
+                        -- Distribui as partes em uma órbita circular.
+                        -- Cada parte recebe uma fase própria para evitar
+                        -- que todas fiquem exatamente no mesmo ponto.
+                        local phase = targetOrbitAngle + (index * (math.pi * 2 / math.max(1, #targetOrbitParts)))
+                        local targetPosition = center + Vector3.new(
+                            math.cos(phase) * TARGET_ORBIT_DISTANCE,
+                            0,
+                            math.sin(phase) * TARGET_ORBIT_DISTANCE
+                        )
+
+                        local align = part:FindFirstChild("TargetOrbitAlignPosition")
+                        if align then
+                            align.Position = targetPosition
+                        end
+                    end
+                end
+            else
+                -- Mesmo sem HumanoidRootPart, continua vivo e procurando
+                -- para acompanhar respawn/troca de personagem.
+                task.wait(0.05)
+            end
+
+            RunService.Heartbeat:Wait()
+        end
+    end)
+end
+
+-- ============ UI NO TROLLTAB ============
+
+TrollTab.AddToggle("Magnet", false, function(value)
+        if value then
+            StartMagnet()
+        else
+            StopMagnet()
+        end
+    end)
+
+TrollTab.AddToggle("Orbit Magnet", false, function(value)
+        if value then
+            StartOrbit()
+        else
+            StopOrbit()
+        end
+    end)
+
+TrollTab.AddSlider("orbit velocity", 1, 20, 1, function(value)
+        OrbitConfig.Speed = value
+    end)
+
+TrollTab.AddSlider("orbit distance", 10, 200, 30, function(value)
+        OrbitConfig.Distance = value
+    end)
+
+-- =================================
+-- Apenas a função Touch Fling
+-- Adicione isso ao seu TrollTab existente
+-- =================================
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local TouchFlingEnabled = false
+local TouchFlingThread = nil
+
+-- Criar detector anti-cheat
+if not ReplicatedStorage:FindFirstChild("juisdfj0i32i0eidsuf0iok") then
+    local detection = Instance.new("Decal")
+    detection.Name = "juisdfj0i32i0eidsuf0iok"
+    detection.Parent = ReplicatedStorage
+end
+
+-- Função principal do Touch Fling
+local function TouchFling()
+    local c, hrp, vel, movel = nil, nil, nil, 0.1
+
+    while TouchFlingEnabled do
+        RunService.Heartbeat:Wait()
+        c = Player.Character
+        hrp = c and c:FindFirstChild("HumanoidRootPart")
+
+        if hrp then
+            vel = hrp.Velocity
+            hrp.Velocity = vel * 99999999 + Vector3.new(0, 99999999, 0)
+            RunService.RenderStepped:Wait()
+            hrp.Velocity = vel
+            RunService.Stepped:Wait()
+            hrp.Velocity = vel + Vector3.new(0, movel, 0)
+            movel = -movel
+        end
+    end
+end
+
+-- Função para iniciar/parar
+local function ToggleTouchFling(Value)
+    TouchFlingEnabled = Value
+    
+    if TouchFlingEnabled then
+        if TouchFlingThread then
+            TouchFlingThread = nil
+        end
+        TouchFlingThread = coroutine.create(TouchFling)
+        coroutine.resume(TouchFlingThread)
+    end
+end
+
+-- Adicione isso dentro do seu TrollTab existente
+TrollTab.AddToggle("Touch Fling", false, function(Value)
+        ToggleTouchFling(Value)
+    end)
+
+-- =================================
+-- Rayfield Fling Functions for TrollTab
+-- =================================
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local AllBool = false
+
+local GetPlayer = function(Name)
+Name = Name:lower()
+if Name == "all" or Name == "others" then
+AllBool = true
+return
+elseif Name == "random" then
+local GetPlayers = Players:GetPlayers()
+if table.find(GetPlayers,Player) then
+table.remove(GetPlayers,table.find(GetPlayers,Player))
+end
+return GetPlayers[math.random(#GetPlayers)]
+elseif Name ~= "random" and Name ~= "all" and Name ~= "others" then
+for _,x in next, Players:GetPlayers() do
+if x ~= Player then
+if x.Name:lower():match("^"..Name) then
+return x;
+elseif x.DisplayName:lower():match("^"..Name) then
+return x;
+end
+end
+end
+else
+return
+end
+end
+
+local SkidFling = function(TargetPlayer)
+local Character = Player.Character
+local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+local RootPart = Humanoid and Humanoid.RootPart
+local TCharacter = TargetPlayer.Character
+local THumanoid
+local TRootPart
+local THead
+local Accessory
+local Handle
+
+if TCharacter:FindFirstChildOfClass("Humanoid") then  
+    THumanoid = TCharacter:FindFirstChildOfClass("Humanoid")  
+end  
+if THumanoid and THumanoid.RootPart then  
+    TRootPart = THumanoid.RootPart  
+end  
+if TCharacter:FindFirstChild("Head") then  
+    THead = TCharacter.Head  
+end  
+if TCharacter:FindFirstChildOfClass("Accessory") then  
+    Accessory = TCharacter:FindFirstChildOfClass("Accessory")  
+end  
+if Accessory and Accessory:FindFirstChild("Handle") then  
+    Handle = Accessory.Handle  
+end  
+
+if Character and Humanoid and RootPart then  
+    if RootPart.Velocity.Magnitude < 50 then  
+        getgenv().OldPos = RootPart.CFrame  
+    end  
+    if THumanoid and THumanoid.Sit and not AllBool then  
+        return  
+    end  
+
+    if THead then  
+        workspace.CurrentCamera.CameraSubject = THead  
+    elseif not THead and Handle then  
+        workspace.CurrentCamera.CameraSubject = Handle  
+    elseif THumanoid and TRootPart then  
+        workspace.CurrentCamera.CameraSubject = THumanoid  
+    end  
+
+    if not TCharacter:FindFirstChildWhichIsA("BasePart") then  
+        return  
+    end  
+
+    local FPos = function(BasePart, Pos, Ang)  
+        RootPart.CFrame = CFrame.new(BasePart.Position) * Pos * Ang  
+        Character:SetPrimaryPartCFrame(CFrame.new(BasePart.Position) * Pos * Ang)  
+        RootPart.Velocity = Vector3.new(9e7, 9e7 * 10, 9e7)  
+        RootPart.RotVelocity = Vector3.new(9e8, 9e8, 9e8)  
+    end  
+
+    local SFBasePart = function(BasePart)  
+        local TimeToWait = 2  
+        local Time = tick()  
+        local Angle = 0  
+        repeat  
+            if RootPart and THumanoid then  
+                if BasePart.Velocity.Magnitude < 50 then  
+                    Angle = Angle + 100  
+                    FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle),0 ,0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(2.25, 1.5, -2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(-2.25, -1.5, 2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))  
+                    task.wait()  
+                else  
+                    FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, -THumanoid.WalkSpeed), CFrame.Angles(0, 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, -TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(0, 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(math.rad(90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5 ,0), CFrame.Angles(math.rad(-90), 0, 0))  
+                    task.wait()  
+                    FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))  
+                    task.wait()  
+                end  
+            else  
+                break  
+            end  
+        until BasePart.Velocity.Magnitude > 500 or BasePart.Parent ~= TargetPlayer.Character or TargetPlayer.Parent ~= Players or not TargetPlayer.Character == TCharacter or THumanoid.Sit or Humanoid.Health <= 0 or tick() > Time + TimeToWait  
+    end  
+
+    workspace.FallenPartsDestroyHeight = 0/0  
+    local BV = Instance.new("BodyVelocity")  
+    BV.Name = "EpixVel"  
+    BV.Parent = RootPart  
+    BV.Velocity = Vector3.new(9e8, 9e8, 9e8)  
+    BV.MaxForce = Vector3.new(1/0, 1/0, 1/0)  
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)  
+
+    if TRootPart and THead then  
+        if (TRootPart.CFrame.p - THead.CFrame.p).Magnitude > 5 then  
+            SFBasePart(THead)  
+        else  
+            SFBasePart(TRootPart)  
+        end  
+    elseif TRootPart and not THead then  
+        SFBasePart(TRootPart)  
+    elseif not TRootPart and THead then  
+        SFBasePart(THead)  
+    elseif not TRootPart and not THead and Accessory and Handle then  
+        SFBasePart(Handle)  
+    else  
+        return  
+    end  
+
+    BV:Destroy()  
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)  
+    workspace.CurrentCamera.CameraSubject = Humanoid  
+
+    repeat  
+        RootPart.CFrame = getgenv().OldPos * CFrame.new(0, .5, 0)  
+        Character:SetPrimaryPartCFrame(getgenv().OldPos * CFrame.new(0, .5, 0))  
+        Humanoid:ChangeState("GettingUp")  
+        table.foreach(Character:GetChildren(), function(_, x)  
+            if x:IsA("BasePart") then  
+                x.Velocity, x.RotVelocity = Vector3.new(), Vector3.new()  
+            end  
+        end)  
+        task.wait()  
+    until (RootPart.Position - getgenv().OldPos.p).Magnitude < 25  
+    workspace.FallenPartsDestroyHeight = getgenv().FPDH  
+else  
+    return  
+end
+
+end
+
+-- Função para fling por nome
+local function FlingByName(PlayerName)
+AllBool = false
+
+if PlayerName:lower() == "all" or PlayerName:lower() == "others" then  
+    for _, pl in next, Players:GetPlayers() do  
+        if pl ~= Player then  
+            pcall(function()  
+                SkidFling(pl)  
+            end)  
+        end  
+    end  
+    return  
+end  
+  
+local target = GetPlayer(PlayerName)  
+if target and target ~= Player then  
+    pcall(function()  
+        SkidFling(target)  
+    end)  
+end
+
+end
+
+-- Função para fling em todos
+local function FlingAll()
+for _, pl in next, Players:GetPlayers() do
+if pl ~= Player then
+pcall(function()
+SkidFling(pl)
+end)
+end
+end
+end
+
+-- Input para nome do jogador
+TrollTab.AddInput("Player Name", "user", function(Text)
+-- Armazena o nome para uso no botão
+getgenv().TargetName = Text
+end)
+
+-- Botão para executar fling
+TrollTab.AddButton("Execute Fling", function()
+if getgenv().TargetName and getgenv().TargetName ~= "" then
+FlingByName(getgenv().TargetName)
+end
+end)
+
+-- Botão para fling em todos
+TrollTab.AddButton("Fling All Players", function()
+FlingAll()
+end)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+getgenv().TargetName = getgenv().TargetName or ""
+local Teleporting = false
+local TeleportAll = false
+
+local Connection = nil
+local ToolLoopRunning = false
+
+-- ============ ORBIT TARGET ============
+-- Usa o mesmo input "Player Name" usado pelo Fling.
+-- Distância fixa: 1 stud | Velocidade fixa: 20.
+
+TrollTab.AddToggle("Troll player (Magnet)", false, function(value)
+        if value then
+            StartTargetOrbit()
+        else
+            StopTargetOrbit()
+        end
+    end)
+
+
+---
+
+-- CHARACTER ADDED
+
+LocalPlayer.CharacterAdded:Connect(function()
+    StopMagnet()
+    StopOrbit()
+    StopTargetOrbit()
+
+    if not Teleporting and not TeleportAll then
+        return
+    end
+
+    task.wait(0.5)
+end)
+
+TeleportTab.AddParagraph("Map Teleport", "")
+
+TeleportTab.AddButton("Low", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(3, 5, -4)
+        end
+    end)
+
+TeleportTab.AddButton("Mid", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(3, 125, -4)
+        end
+    end)
+
+TeleportTab.AddButton("Top", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(3, 250, -4)
+        end
+    end)
+
+TeleportTab.AddParagraph("Lobby Teleport", "")
+
+TeleportTab.AddButton("Spawn", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(-10, 62, -228)
+        end
+    end)
+
+TeleportTab.AddButton("Parkour", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(3, 64, -430)
+        end
+    end)
+
+TeleportTab.AddButton("Parkour vip", function()
+        local Character = LocalPlayer.Character
+        if Character and Character:FindFirstChild("HumanoidRootPart") then
+            Character.HumanoidRootPart.CFrame = CFrame.new(-69, 65, -477)
+        end
+    end)
+
+-- ================= Services =================
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+
+-- ================= Infinite Jump =================
+local infiniteJumpEnabled = false
+
+UserInputService.JumpRequest:Connect(function()
+    if not infiniteJumpEnabled then
+        return
+    end
+
+    local Character = LocalPlayer.Character
+    if not Character then
+        return
+    end
+
+    local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+    if Humanoid then
+        Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end)
+
+PlayerTab.AddToggle("Infinite Jump", false, function(Value)
+        infiniteJumpEnabled = Value
+    end)
+
+-- ================= NoClip =================
+local noclipEnabled = false
+local originalCollision = {}
+
+local function SetNoClip(Character)
+    for _, Part in ipairs(Character:GetDescendants()) do
+        if Part:IsA("BasePart") then
+            if originalCollision[Part] == nil then
+                originalCollision[Part] = Part.CanCollide
+            end
+
+            Part.CanCollide = false
+        end
+    end
+end
+
+local function RestoreCollision()
+    for Part, CanCollide in pairs(originalCollision) do
+        if Part and Part.Parent then
+            Part.CanCollide = CanCollide
+        end
+
+        originalCollision[Part] = nil
+    end
+end
+
+PlayerTab.AddToggle("NoClip", false, function(Value)
+        noclipEnabled = Value
+
+        if not Value then
+            RestoreCollision()
+        end
+    end)
+
+RunService.Stepped:Connect(function()
+    if not noclipEnabled then
+        return
+    end
+
+    local Character = LocalPlayer.Character
+
+    if Character then
+        SetNoClip(Character)
+    end
+end)
+
+-- Restaura a colisão quando o personagem renascer
+LocalPlayer.CharacterAdded:Connect(function()
+    originalCollision = {}
+end)
+
+PlayerTab.AddButton("Fly gui", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/3nUwQMhR"))()
+    end)
