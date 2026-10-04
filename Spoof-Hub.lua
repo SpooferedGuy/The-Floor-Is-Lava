@@ -556,128 +556,6 @@ player.CharacterAdded:Connect(function(character)
     ApplyNoSwim(character)
 end)
 
-local aimbotRange = 100
-
--- SERVICES
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local player = Players.LocalPlayer
-
--- VARIÁVEIS DINÂMICAS
-local char, root, humanoid
-
--- CONNECTION
-local aimConnection = nil
-local aimbotEnabled = false
-
--- ATUALIZA PERSONAGEM
-local function updateCharacter(character)
-    char = character
-    root = char:WaitForChild("HumanoidRootPart")
-    humanoid = char:WaitForChild("Humanoid")
-end
-
--- INICIAL
-updateCharacter(player.Character or player.CharacterAdded:Wait())
-
--- RESPAWN FIX
-player.CharacterAdded:Connect(function(character)
-    updateCharacter(character)
-end)
-
--- GET CLOSEST TARGET
-local function getClosestAimbotTarget()
-    if not root then return nil end
-
-    local closestPlayer = nil  
-    local shortestDist = aimbotRange  
-  
-    for _, p in ipairs(Players:GetPlayers()) do  
-        if p ~= player   
-        and p.Character   
-        and p.Character:FindFirstChild("HumanoidRootPart")   
-        and p.Character:FindFirstChildOfClass("Humanoid")   
-        and p.Character.Humanoid.Health > 0 then  
-              
-            local targetHRP = p.Character.HumanoidRootPart  
-            local dist = (root.Position - targetHRP.Position).Magnitude  
-              
-            if dist < shortestDist then  
-                closestPlayer = p  
-                shortestDist = dist  
-            end  
-        end  
-    end  
-  
-    return closestPlayer
-end
-
--- START
-local function startAimbot()
-    if aimConnection then return end
-
-    aimConnection = RunService.Heartbeat:Connect(function()  
-        if not aimbotEnabled or not root then return end  
-
-        local target = getClosestAimbotTarget()  
-          
-        if target and target.Character then  
-            local targetHrp = target.Character:FindFirstChild("HumanoidRootPart")  
-              
-            if targetHrp then  
-                root.CFrame = CFrame.lookAt(  
-                    root.Position,  
-                    Vector3.new(targetHrp.Position.X, root.Position.Y, targetHrp.Position.Z)  
-                )  
-            end  
-        end  
-    end)
-end
-
--- STOP
-local function stopAimbot()
-    if aimConnection then
-        aimConnection:Disconnect()
-        aimConnection = nil
-    end
-end
-
--- ADICIONAR TOGGLE PLANT SPAM
-local PlantSpam = false
-
-TrollTab.AddToggle("KillAura (CHOMP PLANT)", false, function(Value)
-        PlantSpam = Value
-        
-        -- Ativa/desativa o aimbot junto com o KillAura
-        aimbotEnabled = Value
-        
-        if Value then
-            startAimbot()
-        else
-            stopAimbot()
-        end
-
-        task.spawn(function()  
-            while PlantSpam do  
-                local player = game.Players.LocalPlayer  
-                local character = player.Character or player.CharacterAdded:Wait()  
-                local humanoid = character:WaitForChild("Humanoid")  
-
-                local tool = character:FindFirstChild("CHOMP PLANT")  
-                    or player.Backpack:FindFirstChild("CHOMP PLANT")  
-
-                if tool and tool:IsA("Tool") then  
-                    humanoid:EquipTool(tool)  
-                    task.wait() -- Apenas UM task.wait aqui
-                    humanoid:UnequipTools()  
-                end  
-
-                task.wait() -- E outro aqui para o loop
-            end  
-        end)  
-    end)
-
 local DoubleJump = false
 local UIS = game:GetService("UserInputService")
 local Players = game:GetService("Players")
@@ -1001,44 +879,60 @@ PlayerTab.AddToggle("LavaWalk", false, function(Value)
         end
     end)
 
-local AntiRagdoll = false
-local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
+AntiRagdoll = false
 
-local connection
-
-PlayerTab.AddToggle("AntiRagdoll", false, function(Value)
+PlayerTab.AddToggle("AntiKnockback", false, function(Value)
     AntiRagdoll = Value
-
-    if connection then
-        connection:Disconnect()
-        connection = nil
-    end
-
+    
     if AntiRagdoll then
-        connection = RunService.Heartbeat:Connect(function()
-            local character = Players.LocalPlayer.Character
-            if not character then return end
+        task.spawn(function()
+            while AntiRagdoll do
+                pcall(function()
+                    local char = game.Players.LocalPlayer.Character
+                    if not char then return end
+                    
+                    local hum = char:FindFirstChildOfClass("Humanoid")
+                    if not hum then return end
+                    
+                    local state = hum:GetState()
 
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if not humanoid then return end
+                    -- Bloqueia o Sit
+                    if state == Enum.HumanoidStateType.Seated or hum.Sit then
+                        hum.Sit = false
+                        hum.PlatformStand = false
+                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+                        hum:ChangeState(Enum.HumanoidStateType.Running)
+                    end
 
-            -- Força levantar e sai do estado de ragdoll
-            humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-            humanoid.PlatformStand = false
+                    -- Detecta ragdoll
+                    local isRagdolled =
+                        state == Enum.HumanoidStateType.Physics
+                        or hum.PlatformStand
+                        or state == Enum.HumanoidStateType.FallingDown
 
-            -- Aplica física pesada em todas as partes para resistir a ragdoll
-            for _, part in ipairs(character:GetChildren()) do
-                if part:IsA("BasePart") then
-                    part.CustomPhysicalProperties = PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)
-                end
+                    if isRagdolled then
+                        hum.PlatformStand = false
+                        hum.Sit = false
+                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+                        hum:ChangeState(Enum.HumanoidStateType.Running)
+
+                        -- Aplica física pesada somente quando necessário
+                        for _, part in ipairs(char:GetChildren()) do
+                            if part:IsA("BasePart") then
+                                part.CustomPhysicalProperties =
+                                    PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)
+                            end
+                        end
+                    end
+                end)
+
+                task.wait(0.05)
             end
         end)
     end
 end)
 
 -- Script Local (Client-Sided)
--- Botão Toggle Anti-Fling na PlayerTab para Rayfield
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -1141,15 +1035,6 @@ end
 Players.PlayerAdded:Connect(trackPlayer)
 Players.PlayerRemoving:Connect(untrackPlayer)
 
-local Toggle = PlayerTab.AddToggle("Anti-Fling", false, function(Value)
-        isEnabled = Value
-        
-        for character, _ in pairs(trackedCharacters) do
-            if character and character:IsDescendantOf(workspace) then
-                applyCollisionState(character, isEnabled)
-            end
-        end
-    end)
 
 localPlayer.Chatted:Connect(function(msg)
     msg = msg:lower()
@@ -1223,32 +1108,6 @@ FarmTab.AddButton("Anti AFK", function()
             VirtualUser:CaptureController()
             VirtualUser:ClickButton2(Vector2.new())
         end)
-    end)
-
--- BOTÃO: APENAS SPAM DA PLANTA (Sem aimbot)
-local PlantSpamOnly = false
-
-TrollTab.AddToggle("auto chomp plant (no aimbot)", false, function(Value)
-        PlantSpamOnly = Value
-
-        task.spawn(function()  
-            while PlantSpamOnly do  
-                local player = game.Players.LocalPlayer  
-                local character = player.Character or player.CharacterAdded:Wait()  
-                local humanoid = character:WaitForChild("Humanoid")  
-
-                local tool = character:FindFirstChild("CHOMP PLANT")  
-                    or player.Backpack:FindFirstChild("CHOMP PLANT")  
-
-                if tool and tool:IsA("Tool") then  
-                    humanoid:EquipTool(tool)  
-                    task.wait( )  
-                    humanoid:UnequipTools()  
-                end  
-
-                task.wait( )  
-            end  
-        end)  
     end)
 
 -- ============ CONFIGURAÇÃO DO MAGNET ============
@@ -2188,468 +2047,8 @@ local TeleportAll = false
 local Connection = nil
 local ToolLoopRunning = false
 
-local playersKilled = {}
-local currentTarget = nil
-
--- ID da execução atual
-local SessionId = 0
-
--- ==================================================
--- PREVISÃO
--- ==================================================
-
--- Previsão dos eixos X e Z
-local Prediction = 0.12
-
--- Previsão exclusiva do eixo Y
-local PredictionY = 0.05
-
--- O nome do jogador é definido pelo input único "Player Name" acima.
-
----
-
--- CHOMP PLANT
-
-local function ChompPlantLoop(MySession)
-
-while SessionId == MySession  
-    and (Teleporting or TeleportAll) do  
-
-    local Character = LocalPlayer.Character  
-    local Backpack = LocalPlayer:FindFirstChildOfClass("Backpack")  
-
-    if Character and Backpack then  
-
-        local Humanoid =  
-            Character:FindFirstChildOfClass("Humanoid")  
-
-        if Humanoid and Humanoid.Health > 0 then  
-
-            local Tool =  
-                Character:FindFirstChild("CHOMP PLANT")  
-                or Backpack:FindFirstChild("CHOMP PLANT")  
-
-            if Tool and Tool:IsA("Tool") then  
-
-                if Tool.Parent == Character then  
-                    Humanoid:UnequipTools()  
-                    task.wait()  
-                end  
-
-                Tool = Backpack:FindFirstChild("CHOMP PLANT")  
-
-                if Tool and SessionId == MySession then  
-                    Humanoid:EquipTool(Tool)  
-                end  
-            end  
-        end  
-    end  
-
-    task.wait()  
-end
-
-end
-
-local function StartToolLoop(MySession)
-
-task.spawn(function()  
-    ChompPlantLoop(MySession)  
-end)
-
-end
-
-
----
-
--- TP PREDICTION X Z + Y SEPARADO
-
-local function GetPredictedPosition(TargetHRP)
-
-local Velocity = TargetHRP.AssemblyLinearVelocity  
-
-local PredictedPosition = Vector3.new(  
-
-    -- X usa Prediction  
-    TargetHRP.Position.X  
-        + (Velocity.X * Prediction),  
-
-    -- Y usa PredictionY  
-    TargetHRP.Position.Y  
-        + (Velocity.Y * PredictionY),  
-
-    -- Z usa Prediction  
-    TargetHRP.Position.Z  
-        + (Velocity.Z * Prediction)  
-
-)  
-
-return PredictedPosition
-
-end
-
-
----
-
--- PARAR TUDO
-
-local function StopTeleport()
-
-SessionId = SessionId + 1  
-
-Teleporting = false  
-TeleportAll = false  
-
-if Connection then  
-    Connection:Disconnect()  
-    Connection = nil  
-end  
-
-playersKilled = {}  
-currentTarget = nil
-
-end
-
-
----
-
--- TELEPORTAR PARA JOGADOR
-
-TrollTab.AddButton("Kill(chomp plant)", function()  
-
-    StopTeleport()  
-
-    local MySession = SessionId  
-
-    Teleporting = true  
-
-    StartToolLoop(MySession)  
-
-    Connection = RunService.Heartbeat:Connect(function()  
-
-        if SessionId ~= MySession  
-            or not Teleporting then  
-
-            return  
-        end  
-
-        local Character = LocalPlayer.Character  
-
-        if not Character then  
-            return  
-        end  
-
-        local MyHumanoid =  
-            Character:FindFirstChildOfClass("Humanoid")  
-
-        local MyHRP =  
-            Character:FindFirstChild("HumanoidRootPart")  
-
-        if not MyHumanoid  
-            or not MyHRP  
-            or MyHumanoid.Health <= 0 then  
-
-            StopTeleport()  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- PROCURA O ALVO  
-        --------------------------------------------------  
-
-        local target = nil  
-
-        for _, plr in ipairs(Players:GetPlayers()) do  
-
-            if plr ~= LocalPlayer  
-                and getgenv().TargetName ~= ""  
-                and plr.Name:lower():sub(  
-                    1,  
-                    #getgenv().TargetName  
-                ) == getgenv().TargetName:lower() then  
-
-                target = plr  
-                break  
-            end  
-        end  
-
-
-        if not target then  
-            StopTeleport()  
-            return  
-        end  
-
-
-        local TargetCharacter = target.Character  
-
-        if not TargetCharacter then  
-            return  
-        end  
-
-        local TargetHumanoid =  
-            TargetCharacter:FindFirstChildOfClass("Humanoid")  
-
-        local TargetHRP =  
-            TargetCharacter:FindFirstChild("HumanoidRootPart")  
-
-
-        if not TargetHumanoid  
-            or not TargetHRP  
-            or TargetHumanoid.Health <= 0 then  
-
-            StopTeleport()  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- TP PREDICTION  
-        --------------------------------------------------  
-
-        local PredictedPosition =  
-            GetPredictedPosition(TargetHRP)  
-
-
-        MyHRP.CFrame =  
-            CFrame.new(  
-                PredictedPosition  
-                    + TargetHRP.CFrame.RightVector * 4.5,  
-
-                PredictedPosition  
-            )  
-
-    end)  
-end)
-
-
----
-
--- TELEPORTAR EM TODOS
-
-TrollTab.AddButton("Kill All(chomp plant)", function()  
-
-    StopTeleport()  
-
-    local MySession = SessionId  
-
-    TeleportAll = true  
-
-    playersKilled = {}  
-    currentTarget = nil  
-
-    StartToolLoop(MySession)  
-
-
-    Connection = RunService.Heartbeat:Connect(function()  
-
-        if SessionId ~= MySession  
-            or not TeleportAll then  
-
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- PEGA TODOS OS OUTROS JOGADORES  
-        --------------------------------------------------  
-
-        local allOtherPlayers = {}  
-
-        for _, plr in ipairs(Players:GetPlayers()) do  
-
-            if plr ~= LocalPlayer then  
-                table.insert(allOtherPlayers, plr)  
-            end  
-
-        end  
-
-
-        if #allOtherPlayers == 0 then  
-            StopTeleport()  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- VERIFICA SE TODOS JÁ MORRERAM  
-        --------------------------------------------------  
-
-        local allKilled = true  
-
-        for _, plr in ipairs(allOtherPlayers) do  
-
-            if not playersKilled[plr.UserId] then  
-                allKilled = false  
-                break  
-            end  
-
-        end  
-
-
-        if allKilled then  
-            StopTeleport()  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- VERIFICA ALVO ATUAL  
-        --------------------------------------------------  
-
-        local targetDead = false  
-
-        if currentTarget then  
-
-            local Character =  
-                currentTarget.Character  
-
-            if not Character then  
-
-                targetDead = true  
-
-            else  
-
-                local Humanoid =  
-                    Character:FindFirstChildOfClass("Humanoid")  
-
-                if not Humanoid  
-                    or Humanoid.Health <= 0 then  
-
-                    targetDead = true  
-                end  
-            end  
-        end  
-
-
-        --------------------------------------------------  
-        -- ESCOLHE NOVO ALVO  
-        --------------------------------------------------  
-
-        if not currentTarget or targetDead then  
-
-            if currentTarget then  
-                playersKilled[currentTarget.UserId] = true  
-            end  
-
-            currentTarget = nil  
-
-
-            for _, plr in ipairs(allOtherPlayers) do  
-
-                if not playersKilled[plr.UserId] then  
-
-                    local Character = plr.Character  
-
-                    if Character then  
-
-                        local Humanoid =  
-                            Character:FindFirstChildOfClass("Humanoid")  
-
-                        local HRP =  
-                            Character:FindFirstChild("HumanoidRootPart")  
-
-
-                        if Humanoid  
-                            and HRP  
-                            and Humanoid.Health > 0 then  
-
-                            currentTarget = plr  
-                            break  
-                        end  
-                    end  
-                end  
-            end  
-        end  
-
-
-        --------------------------------------------------  
-        -- NÃO TEM ALVO  
-        --------------------------------------------------  
-
-        if not currentTarget then  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- MEU PERSONAGEM  
-        --------------------------------------------------  
-
-        local MyCharacter =  
-            LocalPlayer.Character  
-
-        if not MyCharacter then  
-            return  
-        end  
-
-        local MyHumanoid =  
-            MyCharacter:FindFirstChildOfClass("Humanoid")  
-
-        local MyHRP =  
-            MyCharacter:FindFirstChild("HumanoidRootPart")  
-
-
-        if not MyHumanoid or not MyHRP then  
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- ALVO  
-        --------------------------------------------------  
-
-        local TargetCharacter =  
-            currentTarget.Character  
-
-        if not TargetCharacter then  
-            return  
-        end  
-
-        local TargetHumanoid =  
-            TargetCharacter:FindFirstChildOfClass("Humanoid")  
-
-        local TargetHRP =  
-            TargetCharacter:FindFirstChild("HumanoidRootPart")  
-
-
-        if not TargetHumanoid  
-            or not TargetHRP  
-            or TargetHumanoid.Health <= 0 then  
-
-            return  
-        end  
-
-
-        --------------------------------------------------  
-        -- TP PREDICTION  
-        --------------------------------------------------  
-
-        local PredictedPosition =  
-            GetPredictedPosition(TargetHRP)  
-
-
-        MyHRP.CFrame =  
-            CFrame.new(  
-                PredictedPosition  
-                    + TargetHRP.CFrame.RightVector * 4,  
-
-                PredictedPosition  
-            )  
-
-    end)  
-end)
-
-
----
-
--- BOTÃO PARAR
-
-TrollTab.AddButton("Stop Kill", function()  
-    StopTeleport()  
-end)
-
 -- ============ ORBIT TARGET ============
--- Usa o mesmo input "Player Name" usado pelo Fling e Kill.
+-- Usa o mesmo input "Player Name" usado pelo Fling.
 -- Distância fixa: 1 stud | Velocidade fixa: 20.
 
 TrollTab.AddToggle("Troll player (Magnet)", false, function(value)
@@ -2712,14 +2111,14 @@ TeleportTab.AddButton("Spawn", function()
 TeleportTab.AddButton("Parkour", function()
         local Character = LocalPlayer.Character
         if Character and Character:FindFirstChild("HumanoidRootPart") then
-            Character.HumanoidRootPart.CFrame = CFrame.new(3, 64, -430)
+            Character.HumanoidRootPart.CFrame = CFrame.new(42, 65, -436)
         end
     end)
 
 TeleportTab.AddButton("Parkour vip", function()
         local Character = LocalPlayer.Character
         if Character and Character:FindFirstChild("HumanoidRootPart") then
-            Character.HumanoidRootPart.CFrame = CFrame.new(-69, 65, -477)
+            Character.HumanoidRootPart.CFrame = CFrame.new(-70, 64, -361)
         end
     end)
 
