@@ -1,5 +1,3 @@
--- Obfuscated Lua wrapper
--- Original source is encoded as byte values and decoded at runtime.
 local _k = 91
 local _d = {
     55, 52, 56, 58, 55, 123, 25, 46, 50, 55, 63, 123, 102, 123, 55, 52, 58, 63, 40, 47, 41, 50, 53, 60,
