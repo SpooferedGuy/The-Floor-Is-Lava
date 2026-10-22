@@ -879,57 +879,37 @@ PlayerTab.AddToggle("LavaWalk", false, function(Value)
         end
     end)
 
+-- Variável global de controle
 AntiRagdoll = false
 
 PlayerTab.AddToggle("AntiKnockback", false, function(Value)
-    AntiRagdoll = Value
-    
-    if AntiRagdoll then
-        task.spawn(function()
-            while AntiRagdoll do
-                pcall(function()
-                    local char = game.Players.LocalPlayer.Character
-                    if not char then return end
-                    
-                    local hum = char:FindFirstChildOfClass("Humanoid")
-                    if not hum then return end
-                    
-                    local state = hum:GetState()
+AntiRagdoll = Value
 
-                    -- Bloqueia o Sit
-                    if state == Enum.HumanoidStateType.Seated or hum.Sit then
-                        hum.Sit = false
-                        hum.PlatformStand = false
-                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
-                        hum:ChangeState(Enum.HumanoidStateType.Running)
-                    end
-
-                    -- Detecta ragdoll
-                    local isRagdolled =
-                        state == Enum.HumanoidStateType.Physics
-                        or hum.PlatformStand
-                        or state == Enum.HumanoidStateType.FallingDown
-
-                    if isRagdolled then
-                        hum.PlatformStand = false
-                        hum.Sit = false
-                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
-                        hum:ChangeState(Enum.HumanoidStateType.Running)
-
-                        -- Aplica física pesada somente quando necessário
-                        for _, part in ipairs(char:GetChildren()) do
-                            if part:IsA("BasePart") then
-                                part.CustomPhysicalProperties =
-                                    PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)
-                            end
-                        end
-                    end
-                end)
-
-                task.wait(0.05)
-            end
-        end)
-    end
+if AntiRagdoll then  
+    -- Ativou  
+    task.spawn(function()  
+        while AntiRagdoll do  
+            pcall(function()  
+                local char = game.Players.LocalPlayer.Character  
+                if not char then return end  
+                  
+                local hum = char:FindFirstChildOfClass("Humanoid")  
+                if hum then  
+                    hum:ChangeState(Enum.HumanoidStateType.GettingUp)  
+                    hum.PlatformStand = false  
+                end  
+                  
+                for _, part in ipairs(char:GetChildren()) do  
+                    if part:IsA("BasePart") then  
+                        part.CustomPhysicalProperties = PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)  
+                    end  
+                end  
+            end)  
+            task.wait(0.08)  
+        end  
+    end)  
+end  
+-- Se desativar, o loop `while AntiRagdoll` para automaticamente
 end)
 
 -- Script Local (Client-Sided)
