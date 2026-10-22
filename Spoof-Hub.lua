@@ -883,33 +883,60 @@ PlayerTab.AddToggle("LavaWalk", false, function(Value)
 AntiRagdoll = false
 
 PlayerTab.AddToggle("AntiKnockback", false, function(Value)
-AntiRagdoll = Value
+    AntiRagdoll = Value
+    
+    -- Função que aplica a lógica no personagem atual
+    local function applyAntiRagdoll(char)
+        if not AntiRagdoll or not char then return end
+        
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        if hum then
+            hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+            hum.PlatformStand = false
+        end
+        
+        for _, part in ipairs(char:GetChildren()) do
+            if part:IsA("BasePart") then
+                part.CustomPhysicalProperties = PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)
+            end
+        end
+    end
 
-if AntiRagdoll then  
-    -- Ativou  
-    task.spawn(function()  
-        while AntiRagdoll do  
-            pcall(function()  
-                local char = game.Players.LocalPlayer.Character  
-                if not char then return end  
-                  
-                local hum = char:FindFirstChildOfClass("Humanoid")  
-                if hum then  
-                    hum:ChangeState(Enum.HumanoidStateType.GettingUp)  
-                    hum.PlatformStand = false  
-                end  
-                  
-                for _, part in ipairs(char:GetChildren()) do  
-                    if part:IsA("BasePart") then  
-                        part.CustomPhysicalProperties = PhysicalProperties.new(1000, 0.3, 0.5, 1, 1)  
-                    end  
-                end  
-            end)  
-            task.wait(0.08)  
-        end  
-    end)  
-end  
--- Se desativar, o loop `while AntiRagdoll` para automaticamente
+    if AntiRagdoll then
+        -- Aplica no personagem atual (se existir)
+        applyAntiRagdoll(game.Players.LocalPlayer.Character)
+
+        -- Escuta quando um novo personagem nascer (após morrer)
+        -- Guardamos a conexão para poder desconectar se o toggle for desligado
+        if not _G.AntiRagdollConnection then
+            _G.AntiRagdollConnection = game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+                if AntiRagdoll then
+                    -- Pequeno delay para garantir que as partes carregaram
+                    task.wait(0.1)
+                    applyAntiRagdoll(newChar)
+                    
+                    -- Opcional: manter a checagem contínua apenas para o estado do Humanoid
+                    -- sem loop infinito de wait
+                    task.spawn(function()
+                        while AntiRagdoll and newChar.Parent do
+                            local h = newChar:FindFirstChildOfClass("Humanoid")
+                            if h then
+                                h:ChangeState(Enum.HumanoidStateType.GettingUp)
+                                h.PlatformStand = false
+                            end
+                            task.wait(0.5)
+                        end
+                    end)
+                end
+            end)
+        end
+    else
+        -- Desconecta o evento se desativar
+        if _G.AntiRagdollConnection then
+            _G.AntiRagdollConnection:Disconnect()
+            _G.AntiRagdollConnection = nil
+        end
+    end
 end)
 
 -- Script Local (Client-Sided)
