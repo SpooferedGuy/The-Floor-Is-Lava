@@ -924,7 +924,7 @@ PlayerTab.AddToggle("AntiKnockback", false, function(Value)
                                 h:ChangeState(Enum.HumanoidStateType.GettingUp)
                                 h.PlatformStand = false
                             end
-                            task.wait(0.5)
+                            task.wait(9999999)
                         end
                     end)
                 end
